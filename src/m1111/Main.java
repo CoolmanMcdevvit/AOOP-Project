@@ -15,9 +15,11 @@ public class Main {
 			System.out.println("Welcome: Please select what you would like to do");
 			System.out.println("  ");
 			System.out.println("  ");
-			System.out.println("To register new patient please press 1");
+			System.out.println("1 - Register Patient");
 			System.out.println("  ");
-			System.out.println("To register new staff please press 2");
+			System.out.println("2 - Register Staff");
+			System.out.println("  ");
+			
 			
 			i = input.nextInt();
 			
@@ -26,11 +28,14 @@ public class Main {
 				reg.registerPatient();
 				System.out.println(" ");
 				System.out.println("Patient successfully registered!");
+				System.out.println(" ");
 			} else if (i == 2){
 				Registration reg = new Registration();
 				reg.registerStaff();
 				System.out.println(" ");
 				System.out.println("Staff successfully registered!");
+				System.out.println(" ");
+				
 			}else {
 				System.out.println("The number you chose is not valid...");
 				System.out.println("Please choose again");

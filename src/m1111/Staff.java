@@ -39,7 +39,7 @@ public class Staff {
 		//boolean c = true;
 		//int i = 1;
 	
-		this.email = name.substring(0) + surename.substring(0) + "@hospital.com";
+		this.email =  name.substring(0,1).toLowerCase() + surename.substring(0).toLowerCase() + getStaffNumber().substring(1) + "@" + getJobRole().toLowerCase() + ".hospital.com";
 		
 		//if (email is unique) {
 		//	break;
@@ -119,8 +119,8 @@ public class Staff {
 	@Override
 	public String toString() {
 		return "Staff information:" + "\n" + "                    Name = " + name + "\n" + "                    Surename = " + surename +
-				"\n" + "                    Email = " + email + "\n" +  "                    JobRole=" + jobRole + "\n" + 
-				"                    StaffNumber=" + staffNumber;
+				"\n" + "                    Email = " + email + "\n" +  "                    JobRole = " + jobRole + "\n" + 
+				"                    StaffNumber = " + staffNumber;
 	}
 	
 	public static void main(String[] args) {
