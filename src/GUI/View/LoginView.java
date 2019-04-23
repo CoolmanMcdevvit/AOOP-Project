@@ -1,4 +1,6 @@
 package GUI.View;
+import GUI.Controller.LoginController;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -10,8 +12,14 @@ public class LoginView extends JFrame{
     private JTextField usernametxt = new JTextField();
     private JPasswordField passtxt = new JPasswordField();
     private JButton loginbtn = new JButton();
+    private LoginController controller;
 
-    public void initGUI(){
+    public LoginView(LoginController controller){
+    this.controller = controller;
+    initGUI();
+    }
+
+    private void initGUI(){
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new GridBagLayout());
         setTitle("Login");
@@ -23,7 +31,7 @@ public class LoginView extends JFrame{
         loginbtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("I've been pressed!");
+                controller.CheckLogin(usernametxt.getText(), String.valueOf(passtxt.getPassword()));
             }
         });
 
@@ -40,6 +48,6 @@ public class LoginView extends JFrame{
         c.gridx = 1; c.gridy = 2; c.ipadx = 30; c.ipady = 10; c.fill = GridBagConstraints.HORIZONTAL;
         add(loginbtn, c);
         pack();
-        setVisible(true);
+        setLocationRelativeTo(null);
     }
 }
