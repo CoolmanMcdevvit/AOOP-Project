@@ -29,9 +29,10 @@ CREATE TABLE Patient
 	 Pati_Surname	VARCHAR(40),
 	 Pati_Bdate		VARCHAR(10),	#dd.mm.yyyy
      Pati_Address	VARCHAR(400),
-     Pati_Dept		ENUM("emergency", "inpatient", "outpatient"),
+     Pati_Dept		ENUM("emergency", "inpatient", "outpatient", "not assigned"),
 	 Pati_Phone		VARCHAR(12),
 	 Pati_Tribe		ENUM("Asia", "US", "EU", "Africa", "Australia", "Others"),
+     Pati_Alive		ENUM("alive","dead"),
 	 PRIMARY KEY(Pati_ID)
      #FOREIGN KEY(Pati_Dept) REFERENCES Facility(Fac_Name) ON DELETE SET NULL
 	);
@@ -49,3 +50,5 @@ INSERT INTO Facility (Fac_Name, Fac_Bed)
 VALUES(1,200),
 (2,300),
 (3,400);
+
+UPDATE Staff SET St_Name = 'jj' WHERE St_SerialNum = 1
