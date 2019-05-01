@@ -1,14 +1,18 @@
 package GUI.View;
 
 import javax.swing.*;
+import javax.swing.text.DateFormatter;
+import javax.swing.text.DefaultFormatterFactory;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.SimpleDateFormat;
 
 public class HomePageView extends JFrame{
 
     private JTextField name, surname, birthdate,homeaddress,phonenumber,tribe,alivedead;
-    private JButton patregbutton;
+    private JFormattedTextField bd;
+    private JButton patregbutton, patsearchbutton;
 
 
     public HomePageView(){
@@ -55,12 +59,13 @@ public class HomePageView extends JFrame{
         phonenumber = new JTextField();
         tribe = new JTextField();
         alivedead = new JTextField();
+        bd = new JFormattedTextField(new DefaultFormatterFactory(new DateFormatter(new SimpleDateFormat("dd/mm/yyyy"))));
         gc.gridy = 1; gc.gridx=1; gc.ipadx = 90; gc.fill = GridBagConstraints.HORIZONTAL;
         p1.add(name,gc);
         gc.gridy = 2;
         p1.add(surname,gc);
         gc.gridy = 3;
-        p1.add(birthdate,gc);
+        p1.add(bd,gc);
         gc.gridy = 4;
         p1.add(homeaddress,gc);
         gc.gridy = 5;
@@ -73,11 +78,21 @@ public class HomePageView extends JFrame{
         patregbutton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //HomePageController.checkLogin(name.getText(), surname.getText(), brithdate.getText(), homeaddress.getText(), phonenumber.getText(), tribe.getText(), alivedead.getText())
+                //HomePageController.checkPatientReg(name.getText(), surname.getText(), brithdate.getText(), homeaddress.getText(), phonenumber.getText(), tribe.getText(), alivedead.getText())
             }
         });
-        gc.gridx=0; gc.gridy= 8; gc.gridwidth = GridBagConstraints.REMAINDER;
+        gc.gridx=1; gc.gridy= 8;
         p1.add(patregbutton,gc);
+        patsearchbutton = new JButton("Search");
+        patsearchbutton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //HomePageController.searchPatientReg(name.getText(), surname.getText(), brithdate.getText(), homeaddress.getText(), phonenumber.getText(), tribe.getText(), alivedead.getText())
+            }
+        });
+        gc.gridx=0;
+        p1.add(patsearchbutton,gc);
+
 
 
         JPanel p2 = new JPanel();
@@ -99,6 +114,7 @@ public class HomePageView extends JFrame{
         add(toppanel, c);
         c.gridwidth = GridBagConstraints.REMAINDER;
         add(optionlist, c);
+        pack();
 
 
 
