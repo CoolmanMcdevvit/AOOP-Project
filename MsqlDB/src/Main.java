@@ -4,35 +4,35 @@ import java.util.Scanner;
 
 
 class Main {
-    public static void Patient_sign_up(){
+    public static void patientSignUp(String name, String surname, String address, String phone, string bdate, int dept, int alive)
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/Hospital_JAVA", "root", "sql");
             Statement stmt = con.createStatement();
-            Scanner s = new Scanner(System.in);
-            String Pati_Name, Pati_Surname, Pati_Address, Pati_Bdate, Pati_Phone;
-            int Pati_Dept, Pati_Tribe, Pati_Alive;
-            System.out.print("Welcome to the Patient sign up function ");
-            System.out.print("Enter firstname: ");
-            Pati_Name = s.nextLine();
-            System.out.print("Enter lastname: ");
-            Pati_Surname = s.nextLine();
-            System.out.print("Enter address: ");
-            Pati_Address = s.nextLine();
-            System.out.print("Enter birth date: (DD.MM.YYYY)");
-            Pati_Bdate = s.nextLine();
-            System.out.print("Enter phone number: ");
-            Pati_Phone = s.nextLine();
-            System.out.print("Enter department: (emergency = 1, inpatient = 2, outpatient = 3, Not assigned = 4)");
-            Pati_Dept = s.nextInt();
-            System.out.print("Enter tribe: (Asia = 1, US = 2, EU = 3, Africa = 4, Australia = 5, Others = 6");
-            Pati_Tribe = s.nextInt();
-            System.out.print("Enter life status: (alive = 1, dead = 2)");
-            Pati_Alive = s.nextInt();
+//            Scanner s = new Scanner(System.in);
+//            String Pati_Name, Pati_Surname, Pati_Address, Pati_Bdate, Pati_Phone;
+//            int Pati_Dept, Pati_Tribe, Pati_Alive;
+//            System.out.print("Welcome to the Patient sign up function ");
+//            System.out.print("Enter firstname: ");
+//            Pati_Name = s.nextLine();
+//            System.out.print("Enter lastname: ");
+//            Pati_Surname = s.nextLine();
+//            System.out.print("Enter address: ");
+//            Pati_Address = s.nextLine();
+//            System.out.print("Enter birth date: (DD.MM.YYYY)");
+//            Pati_Bdate = s.nextLine();
+//            System.out.print("Enter phone number: ");
+//            Pati_Phone = s.nextLine();
+//            System.out.print("Enter department: (emergency = 1, inpatient = 2, outpatient = 3, Not assigned = 4)");
+//            Pati_Dept = s.nextInt();
+//            System.out.print("Enter tribe: (Asia = 1, US = 2, EU = 3, Africa = 4, Australia = 5, Others = 6");
+//            Pati_Tribe = s.nextInt();
+//            System.out.print("Enter life status: (alive = 1, dead = 2)");
+//            Pati_Alive = s.nextInt();
             
             stmt.executeUpdate("INSERT INTO Patient (Pati_Name, Pati_Surname, Pati_Address, Pati_Phone, Pati_Bdate, Pati_Tribe, Pati_Dept, Pati_Alive)" 
-                    + "VALUES('" + Pati_Name +"','"+ Pati_Surname +"','"+ Pati_Address + "','" + Pati_Phone 
-                    +"','"+ Pati_Bdate +"',"+ Pati_Tribe + ','+ Pati_Dept + ','+ Pati_Alive + ")");
+                    + "VALUES('" + name +"','"+ surname +"','"+ address + "','" + phone
+                    +"','"+ bdate +"',"+ tribe + ','+ dept + ','+ alive + ")");
             con.close();
         } catch (Exception e) {
             System.out.println(e);
