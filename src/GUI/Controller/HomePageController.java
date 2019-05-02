@@ -4,6 +4,8 @@ package GUI.Controller;
 import GUI.Model.Session;
 import GUI.View.HomePageView;
 
+import javax.swing.*;
+
 public class HomePageController{
     private HomePageView view;
     private Session model;
@@ -21,10 +23,10 @@ public class HomePageController{
     }
 
     public void patChangePress() {
-        if (model.getRole().equals("registration clerk")) {
-            application.registration();
+        if (model.getRole().equals("registration clerk")){
+            }
         }
-    }
+
 
     public void patFindPress() {
         if (model.getRole().equals("registration clerk")) {

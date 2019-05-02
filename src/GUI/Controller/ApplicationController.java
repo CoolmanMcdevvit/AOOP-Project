@@ -2,14 +2,13 @@ package GUI.Controller;
 
 import GUI.Model.Session;
 import GUI.View.HomePageView;
-import GUI.View.LoginView;
-import sun.rmi.runtime.Log;
+import GUI.View.PatientRegistrationView;
 
 public class ApplicationController {
     //insert controllers to call here
     private LoginController logincontroller;
     private HomePageController homePagecontroller;
-    private RegistrationController registrationcontroller;
+    private PatRegistrationController patregistrationcontroller;
 
     public void login(){
         logincontroller = new LoginController();
@@ -17,14 +16,16 @@ public class ApplicationController {
     }
 
     public void registration(){
-        registrationcontroller = new RegistrationController();
-//        registrationcontroller.display();
+        patregistrationcontroller = new PatRegistrationController();
+        PatientRegistrationView view = new PatientRegistrationView(patregistrationcontroller);
+        patregistrationcontroller.setView(view );
+        patregistrationcontroller.display();
 
     }
 
     public void HomePage(Session s){
-        HomePageView h = new HomePageView();
         homePagecontroller = new HomePageController(s);
+        HomePageView h = new HomePageView(homePagecontroller);
         homePagecontroller.setView(h);
         homePagecontroller.display();
 
