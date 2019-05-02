@@ -8,10 +8,17 @@ public class ApplicationController {
     //insert controllers to call here
     private LoginController logincontroller;
     private HomePageController homePagecontroller;
+    private RegistrationController registrationcontroller;
 
     public void login(){
         logincontroller = new LoginController();
         logincontroller.display();
+    }
+
+    public void registration(){
+        registrationcontroller = new RegistrationController;
+        registrationcontroller.display();
+
     }
 
     public void HomePage(){
