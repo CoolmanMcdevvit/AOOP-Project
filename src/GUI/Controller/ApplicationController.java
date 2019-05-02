@@ -1,5 +1,6 @@
 package GUI.Controller;
 
+import GUI.Model.Session;
 import GUI.View.HomePageView;
 import GUI.View.LoginView;
 import sun.rmi.runtime.Log;
@@ -16,20 +17,18 @@ public class ApplicationController {
     }
 
     public void registration(){
-        registrationcontroller = new RegistrationController;
-        registrationcontroller.display();
+        registrationcontroller = new RegistrationController();
+//        registrationcontroller.display();
 
     }
 
-    public void HomePage(){
-
+    public void HomePage(Session s){
+        homePagecontroller = new HomePageController(s);
+        homePagecontroller.display();
 
     }
     public static void main(String[] args){
-        LoginController c = new LoginController();
-        HomePageView H = new HomePageView();
-        LoginView L = new LoginView(c);
-        L.setVisible(true);
-        H.setVisible(true);
+        ApplicationController app = new ApplicationController();
+        app.login();
     }
 }

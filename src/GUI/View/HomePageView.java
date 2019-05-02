@@ -22,29 +22,41 @@ public class HomePageView extends JFrame{
         initGUI();
     }
 
-    HomePageView(HomePageController controller){
+    public HomePageView(HomePageController controller){
         this.controller = controller;
     }
 
     public void initGUI(){
+        // Stops program on close
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        //defines layout
         setLayout(new GridBagLayout());
+        //sets title of window
         setTitle("Hospital Management System");
 
+        // for "headder" of frame
         JPanel toppanel = new JPanel(new FlowLayout(FlowLayout.LEFT,10,20));
         toppanel.setBackground(Color.BLUE);
         JLabel head = new JLabel("Hospital Management");
         head.setFont(new Font("Arial", Font.PLAIN, 18));
         toppanel.add(head);
-        GridBagConstraints gc = new GridBagConstraints();
 
-
+        // creates new panel to add buttons to
         JPanel p1 = new JPanel();
+        // defines layout of panel
         p1.setLayout(new GridBagLayout());
+
+        // Set button values
         patregbutton = new JButton("Patient Registration");
+        patchangebutton = new JButton("Change Patient Information");
+        patfindbutton = new JButton("Find Patient");
+        admissionbutton = new JButton("Admit patient");
+
+        //defines what to do on button press
         patregbutton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                controller.
 
             }
         });
