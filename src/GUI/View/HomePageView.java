@@ -1,5 +1,8 @@
 package GUI.View;
 
+
+import GUI.Controller.HomePageController;
+
 import javax.swing.*;
 import javax.swing.text.DateFormatter;
 import javax.swing.text.DefaultFormatterFactory;
@@ -9,14 +12,18 @@ import java.awt.event.ActionListener;
 import java.text.SimpleDateFormat;
 
 public class HomePageView extends JFrame{
-
     private JTextField name, surname, birthdate,homeaddress,phonenumber,tribe,alivedead;
     private JFormattedTextField bd;
     private JButton patregbutton, patsearchbutton;
+    private HomePageController controller;
 
 
     public HomePageView(){
         initGUI();
+    }
+
+    HomePageView(HomePageController controller){
+        this.controller = controller;
     }
 
     public void initGUI(){
@@ -43,7 +50,7 @@ public class HomePageView extends JFrame{
         gc.gridy = 2;
         p1.add(new JLabel("Surname: "),gc);
         gc.gridy = 3;
-        p1.add(new JLabel("Birth date (dd/mm/yyyy): "),gc);
+        p1.add(new JLabel("Birth date (dd.mm.yyyy): "),gc);
         gc.gridy = 4;
         p1.add(new JLabel("Home Address: "),gc);
         gc.gridy = 5;
@@ -54,7 +61,6 @@ public class HomePageView extends JFrame{
         p1.add(new JLabel("Alive / Dead: "),gc);
         name = new JTextField();
         surname = new JTextField();
-        birthdate = new JTextField();
         homeaddress = new JTextField();
         phonenumber = new JTextField();
         tribe = new JTextField();
@@ -78,11 +84,12 @@ public class HomePageView extends JFrame{
         patregbutton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //HomePageController.checkPatientReg(name.getText(), surname.getText(), brithdate.getText(), homeaddress.getText(), phonenumber.getText(), tribe.getText(), alivedead.getText())
+                controller.checkPatientReg(name.getText(), surname.getText(), bd.getText(), homeaddress.getText(), phonenumber.getText(), tribe.getText(), alivedead.getText())
             }
         });
         gc.gridx=1; gc.gridy= 8;
         p1.add(patregbutton,gc);
+
         patsearchbutton = new JButton("Search");
         patsearchbutton.addActionListener(new ActionListener() {
             @Override
