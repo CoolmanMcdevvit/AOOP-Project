@@ -23,7 +23,9 @@ public class ApplicationController {
     }
 
     public void HomePage(Session s){
+        HomePageView h = new HomePageView();
         homePagecontroller = new HomePageController(s);
+        homePagecontroller.setView(h);
         homePagecontroller.display();
 
     }

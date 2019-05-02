@@ -1,23 +1,41 @@
 package GUI.Controller;
 
-import GUI.Model.Homepage;
+//import GUI.Model.Homepage;
 import GUI.Model.Session;
 import GUI.View.HomePageView;
 
 public class HomePageController{
     private HomePageView view;
-    private Homepage model;
+    private Session model;
     private ApplicationController application;
-    private Session session;
 
     public HomePageController(Session s){
-        this.session = s;
-        this.view = new HomePageView(this);
-        this.model = new Homepage();
+        this.model = s;
+        this.application = new ApplicationController();
     }
 
-    public void registrationPress(){
+    public void patRegistrationPress(){
+        if(model.getRole().equals("registration clerk")){
+            application.registration();
+        }
+    }
 
+    public void patChangePress() {
+        if (model.getRole().equals("registration clerk")) {
+            application.registration();
+        }
+    }
+
+    public void patFindPress() {
+        if (model.getRole().equals("registration clerk")) {
+            application.registration();
+        }
+    }
+
+    public void patAdmissionPress() {
+        if (model.getRole().equals("registration clerk")) {
+            application.registration();
+        }
     }
 
 //    public void checkPatientReg(String n, String sn, String bd, String ha,String pn, String t, String ad) {
@@ -29,6 +47,10 @@ public class HomePageController{
 //    public void searchPatientReg(String n, String sn, String bd, String ha,String pn, String t, String ad){
 //
 //    }
+
+    public void setView(HomePageView view){
+        this.view = view;
+    }
 
     public void display(){view.setVisible(true);}
 }

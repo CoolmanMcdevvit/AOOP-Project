@@ -14,7 +14,8 @@ import java.text.SimpleDateFormat;
 public class HomePageView extends JFrame{
     private JTextField name, surname, birthdate,homeaddress,phonenumber,tribe,alivedead;
     private JFormattedTextField bd;
-    private JButton patregbutton,patchangebutton , patfindbutton, admissionbutton;
+    private JButton patregbutton,patchangebutton , patfindbutton, patadmissionbutton;
+    private JButton staffregbutton, staffchangebutton, stafffindbutton;
     private HomePageController controller;
 
 
@@ -50,16 +51,46 @@ public class HomePageView extends JFrame{
         patregbutton = new JButton("Patient Registration");
         patchangebutton = new JButton("Change Patient Information");
         patfindbutton = new JButton("Find Patient");
-        admissionbutton = new JButton("Admit patient");
+        patadmissionbutton = new JButton("Admit patient");
 
         //defines what to do on button press
         patregbutton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                controller.
-
+                controller.patRegistrationPress();
             }
         });
+        patchangebutton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                controller.patChangePress();
+            }
+        });
+        patfindbutton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                controller.patFindPress();
+            }
+        });
+        patadmissionbutton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                controller.patAdmissionPress();
+            }
+        });
+
+        // GridbagContraints defines location of components in panel
+        GridBagConstraints gc = new GridBagConstraints();
+        // x&y location, x directional size, fill all row, distance between components
+        gc.gridx=0; gc.gridy=0; gc.ipadx = 150 ;gc.fill = GridBagConstraints.HORIZONTAL; gc.insets = new Insets(5,5,5,5);
+        p1.add(patregbutton,gc);
+        gc.fill = GridBagConstraints.HORIZONTAL; gc.gridy=1;
+        p1.add(patchangebutton,gc);gc.weightx = 200;
+        gc.fill = GridBagConstraints.HORIZONTAL; gc.gridy=2;
+        p1.add(patfindbutton,gc);gc.weightx = 200;
+        gc.fill = GridBagConstraints.HORIZONTAL; gc.gridy=3;
+        p1.add(patadmissionbutton,gc);
+
 //        JLabel panelheader = new JLabel("Please enter patient data");
 //        panelheader.setFont(new Font("Arial", Font.BOLD, 15));
 //        gc.gridx = 0; gc.gridy = 0; gc.ipady = 30; gc.fill = GridBagConstraints.HORIZONTAL;
@@ -122,6 +153,7 @@ public class HomePageView extends JFrame{
 
 
         JPanel p2 = new JPanel();
+
 
         JPanel p3 = new JPanel();
         JPanel p4 = new JPanel();

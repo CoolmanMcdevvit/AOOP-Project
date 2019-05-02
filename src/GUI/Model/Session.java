@@ -4,11 +4,11 @@ package GUI.Model;
 import java.util.ArrayList;
 
 public class Session {
-    //User, Role + gets
+
     private String role;
     private User user;
     public Session(int key){
-        this.role = getRole(key);
+        setRole(key);
     }
 
     public void setUser(User user){this.user = user;}
@@ -17,9 +17,12 @@ public class Session {
 
     public int getUsername(){return user.getUsername();}
 
-    public String getRole(int key){
+    public void setRole(int key){
         ArrayList temp = new ArrayList();
-        return "2";
-//        return Registration.get(key).get(1);
+        this.role = "2"; //return Registration.get(key).get(1);
+    }
+
+    public String getRole(){
+        return role;
     }
 }
