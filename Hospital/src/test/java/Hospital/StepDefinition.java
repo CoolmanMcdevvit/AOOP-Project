@@ -11,6 +11,7 @@ public class StepDefinition {
 	
 	Patient P;
 	Search search;
+	Registration reg;
 	
 	@Given("^that I want to register a patient$")
 	public void that_I_want_to_register_a_patient() {
@@ -64,7 +65,7 @@ public class StepDefinition {
 
 	@When("^patient is registered$")
 	public void patient_is_registered() {
-	  Registration reg = new Registration(P);
+	  reg.registerPatient(P);;
 	}
 
 	@Then("^a unique patientID is created$")
@@ -90,8 +91,8 @@ public class StepDefinition {
 	
 	
 	@When("^the search is done$")
-	public void the_search_is_done() {
-		search.SearchpID();
+	public void the_search_is_done(int ID) {
+		search.SearchpID(ID);
 	}
 	
 	@Then("^displays the information on the patient with that patientID$")

@@ -10,20 +10,16 @@ import java.util.Set;
 
 public class Registration {
 	
-	Scanner input = new Scanner(System.in);
 	
 	public static Map<Integer, Patient> hashmapID = new HashMap<Integer, Patient>();
 	
-	//public static ArrayList<Patient> arrayListPatients = new ArrayList<Patient>();
 
-	//public static ArrayList<Patient> arrayListPatients = new ArrayList<Patient>();
 	
 	
 	
-	public Registration(Patient p) {
+	public void registerPatient(Patient p) {
 
 		hashmapID.put(p.getPatientID(), p);
-		//arrayListPatients.add(p);
 		
 	}
 	

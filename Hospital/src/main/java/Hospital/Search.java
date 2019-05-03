@@ -2,28 +2,26 @@ package Hospital;
 
 import java.util.List;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Iterator;
-import java.util.Scanner;
+
 
 public class Search {
 	
-	boolean validpID;
-	Collection<Patient> patients;
 	
-	public void IspIDValid(int ID) {
+	public boolean IspIDValid(int ID) {
 		if (Registration.hashmapID.containsKey(ID)){
-			this.validpID = true;
+			return true;
 		} else {
-			this.validpID = false;
+			return false;
 		}
 	}
 	
 	public Patient SearchpID(int ID) {
 		
-		IspIDValid(ID);
 		
-		if(validpID) {
+		
+		if(IspIDValid(ID)) {
+			System.out.println(Registration.hashmapID.get(ID));
 			return Registration.hashmapID.get(ID);
 		} else {
 			System.out.println("There is no patient with that ID");
@@ -33,30 +31,48 @@ public class Search {
 	
 	
 	
-	public Patient SearchFirstName(String firstNameToCompare) {
+	public List<Patient> SearchFirstName(String firstNameToCompare) {
 		
-		Iterator<Patient> iterator = patients.iterator();
+		List<Patient> patList = new ArrayList<Patient>();
+		
+		Iterator<Patient> iterator = Registration.hashmapID.values().iterator();
 		while (iterator.hasNext()) {
 	        Patient patient = iterator.next();
-	        if (patient.getFirstname().equals(firstNameToCompare)) {
-	            return patient;
+	        if (patient.getFirstname().equals(firstNameToCompare)) {  
+	        	System.out.println(Registration.hashmapID.get(patient.getPatientID()));
+	        	patList.add(patient);
 	        }
-	    	}
-		System.out.println("There is no one with that first name");
-		return null;
+	    }
+		
+		if (patList.isEmpty()) {
+			System.out.println("There is no one with that first name");
+			return null;
+		} else {
+			return patList;
 		}
-
+	}
 	
-	public Patient SearchLastName(String lastNameToCompare) {
-			
-		Iterator<Patient> iterator = patients.iterator();
+	public List<Patient> SearchLastName(String lastNameToCompare) {
+		
+		List<Patient> patList = new ArrayList<Patient>();
+		
+		Iterator<Patient> iterator = Registration.hashmapID.values().iterator();
 		while (iterator.hasNext()) {
 	        Patient patient = iterator.next();
 	        if (patient.getLastname().equals(lastNameToCompare)) {
-	            return patient;
+	        	System.out.println(Registration.hashmapID.get(patient.getPatientID()));
+	        	patList.add(patient);
 	        }
-	    	}return null;	    	
+	    }
+		
+		if (patList.isEmpty()) {
+			System.out.println("There is no one with that last name");
+			return patList;
+		} else {
+			return patList;
 		}
+		
+	    }
 		
 }
 
