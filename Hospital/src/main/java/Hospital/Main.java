@@ -99,7 +99,7 @@ public class Main {
 						System.out.println("Please put in a First name");
 						Scanner inn = new Scanner(System.in);
 						String FN = inn.nextLine();
-						search.SearchFirstName(FN, hmapP);
+						search.SearchPFirstName(FN, hmapP);
 						break;
 						
 					} else if (ii==3) {
@@ -107,7 +107,7 @@ public class Main {
 						System.out.println("Please put in a Last name");
 						Scanner inn = new Scanner(System.in);
 						String LN = inn.nextLine();
-						search.SearchLastName(LN, hmapP);
+						search.SearchPLastName(LN, hmapP);
 						break;
 					} else {
 						System.out.println("This number is not valid please choose again");
@@ -122,7 +122,7 @@ public class Main {
 				
 			} else if (i == 4){
 				System.out.println("Here is a list of all the Patients and their attributes");
-				System.out.println(hmd.hashmapPatient.values());
+				System.out.println(hmapP.values());
 			} else {
 				System.out.println("The number you chose is not valid please try again");
 			}

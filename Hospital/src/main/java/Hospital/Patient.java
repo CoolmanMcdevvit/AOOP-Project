@@ -1,10 +1,8 @@
 package Hospital;
 import java.util.Scanner;
 
-public class Patient {
+public class Patient extends Person {
 
-	private String firstname;
-	private String lastname;
 	private String address;
     private int phonenumber;
     private int birthday;
@@ -56,75 +54,36 @@ public class Patient {
     
 	///////////////////////////SETTERS TO CHANGE THE VARIABLES LATER//////////////////////////////////
     
-	public void setFirstname(String firstname) {
-		System.out.println("Put in the lastname");
-		this.firstname = input.nextLine();		
+	
+	public void setAddress(String address) {		
+		this.address = address;		
 	}
 	
-	public void setLastname(String lastname) {
-		System.out.println("Put in the lastname");
-		this.lastname = input.nextLine();	
-	}
-	
-	public void setAddress(String address) {
-		System.out.println("Put in the Address");
-		this.address = input.nextLine();		
-	}
-	
-	public void setPhonenumber(int phonenumber) {
-		System.out.println("Put in the phonenumber"); 
-		this.phonenumber = input.nextInt();	
+	public void setPhonenumber(int phonenumber) {	
+		this.phonenumber = phonenumber;	
 	}
 	
 	public void setBirthday(int birthday) {
-		System.out.println("Put in the birthday");
-		this.birthday=input.nextInt();	
+		this.birthday = birthday;
 	}
 	
 	public void setBirthmonth(int birthmonth) {
-		System.out.println("Put in the birthmonth");
-		this.birthmonth=input.nextInt();		
+		this.birthmonth = birthmonth; 		
 	}
 	
 	public void setBirthyear(int birthyear) {
-		System.out.println("Put in the birthyear");
-		this.birthyear=input.nextInt();		
+		this.birthyear = birthyear;		
 	}
 	
 	public void setTribe(String tribe) {
-		System.out.println("Put in the Tribe");
-		Scanner input = new Scanner(System.in);
-		this.tribe = input.nextLine();		
+		this.tribe = tribe;	
 	}
 	
 	public void setAlivestatus(boolean isAlive) {
-		System.out.println("Put in the Alivestatus");
-		System.out.println("1 - Alive");
-		System.out.println("2 - ead");
-		
-		while (true) {
-			int i = input.nextInt();
-			if (i==1) {
-			this.isAlive = true;
-			break;
-		} else if (i ==2) {
-			this.isAlive = false;
-			break;
-		}else {
-			System.out.println("The number you chose is not valid please try again");
-		}
-		} 	
+		this.isAlive = isAlive;
 	}
 	
 	////////////////////////GETTERS FOR VARIABLES//////////////////////////////////////
-	
-	public String getFirstname() {
-		return firstname;		
-	}
-	
-	public String getLastname() {
-		return lastname;		
-	}
 	
 	public int getPatientID() {
 		return patientID;
