@@ -3,6 +3,7 @@ package GUI.Controller;
 import GUI.Model.Session;
 import GUI.View.ChangePatientView;
 import GUI.View.HomePageView;
+import GUI.View.PatientInfoView;
 import GUI.View.PatientRegistrationView;
 
 import javax.swing.*;
@@ -40,6 +41,7 @@ public class ApplicationController {
         changepatientcontroller.setView(view,hview);
         changepatientcontroller.display();
     }
+
 
     public static void main(String[] args){
         ApplicationController app = new ApplicationController();
