@@ -59,13 +59,22 @@ public class FindPatientView extends JFrame {
 //        panel.add(searchlabel);
 
         searchtextfield = new JTextField();
-        searchtextfield.setBounds(160,50,320,30);
+        searchtextfield.setBounds(160,30,320,30);
         panel.add(searchtextfield);
 
         searchbutton = new JButton("Search");
-        searchbutton.setBounds(245,90,160,30);
+        searchbutton.setBounds(160,70,160,30);
         panel.add(searchbutton);
 
+        homebutton = new JButton("Home");
+        homebutton.setBounds(320,70,160,30);
+        homebutton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e){
+                controller.returnHome();
+            }
+        });
+        panel.add(homebutton);
 
         namebutton = new JRadioButton("Name");
         namebutton.setBounds(30,25,80,20);
