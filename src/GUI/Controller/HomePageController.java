@@ -33,7 +33,7 @@ public class HomePageController{
 
     public void patFindPress() {
         if (session.getRole().equals("registration clerk")) {
-            application.registration(view);
+            application.findPatient(view);
         }
     }
 

@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/AOOP-Project.iml" filepath="$PROJECT_DIR$/.idea/AOOP-Project.iml" />
+      <module fileurl="file://$PROJECT_DIR$/AOOP-Project.iml" filepath="$PROJECT_DIR$/AOOP-Project.iml" />
+      <module fileurl="file://$PROJECT_DIR$/m2/m2.iml" filepath="$PROJECT_DIR$/m2/m2.iml" />
     </modules>
   </component>
 </project>
