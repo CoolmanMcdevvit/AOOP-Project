@@ -8,35 +8,38 @@ import javax.swing.*;
 
 public class HomePageController{
     private HomePageView view;
-    private Session model;
+    private Session session;
     private ApplicationController application;
 
     public HomePageController(Session s){
-        this.model = s;
+        this.session = s;
         this.application = new ApplicationController();
     }
 
     public void patRegistrationPress(){
-        if(model.getRole().equals("registration clerk")){
-            application.registration();
+        if(session.getRole().equals("registration clerk")){
+            view.setVisible(false);
+            application.registration(view);
         }
     }
 
     public void patChangePress() {
-        if (model.getRole().equals("registration clerk")){
+        if (session.getRole().equals("registration clerk")){
+            view.setVisible(false);
+            application.changePatient(view);
             }
         }
 
 
     public void patFindPress() {
-        if (model.getRole().equals("registration clerk")) {
-            application.registration();
+        if (session.getRole().equals("registration clerk")) {
+            application.registration(view);
         }
     }
 
     public void patAdmissionPress() {
-        if (model.getRole().equals("registration clerk")) {
-            application.registration();
+        if (session.getRole().equals("registration clerk")) {
+            application.registration(view);
         }
     }
 

@@ -1,5 +1,6 @@
 package GUI.View;
 
+import GUI.Controller.ChangePatientController;
 import GUI.Controller.PatRegistrationController;
 import sun.java2d.windows.GDIRenderer;
 
@@ -9,21 +10,20 @@ import javax.swing.text.DefaultFormatterFactory;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 
 
-public class PatientRegistrationView extends JFrame {
+public class ChangePatientView extends JFrame {
 
-    private PatRegistrationController controller;
+    private ChangePatientController controller;
     private JLabel namelabel, surnamelabel, birthdatelabel, homeadresslabel,phonenumberlabel,tribelabel,alivelabel, toplabel;
-    private JTextField name, surname, homeaddress,phonenumber,tribe,alivedead;
-    private JFormattedTextField bdd, bdm, bdy;
-    private JButton clicktoregister, cleartext,home;
+    private JTextField name, surname, birthdate,homeaddress,phonenumber,tribe,alivedead;
+    private JTextField bdd, bdm, bdy;
+    private JButton clicktoregister, cleartext,home,clicktomodify;
     private JPanel panel;
     private JFrame frame;
 
-    public PatientRegistrationView(PatRegistrationController controller){
+    public ChangePatientView(ChangePatientController controller){
         this.controller = controller;
         initGUI();
     }
@@ -40,7 +40,7 @@ public class PatientRegistrationView extends JFrame {
         setMinimumSize(new Dimension(550,600));
 
         //All labels
-        toplabel = new JLabel("Please enter Patient Data: ");
+        toplabel = new JLabel("Please change Patient Data: ");
         toplabel.setFont(new Font("Arial", Font.BOLD, 15));
         toplabel.setBounds(50,20,350,40);
         panel.add(toplabel);
@@ -113,15 +113,15 @@ public class PatientRegistrationView extends JFrame {
         panel.add(alivedead);
 
         //Button
-        clicktoregister = new JButton("Register");
-        clicktoregister.setBounds(50,500,138,30);
-        clicktoregister.addActionListener(new ActionListener() {
+        clicktomodify = new JButton("Update");
+        clicktomodify.setBounds(50,500,138,30);
+        clicktomodify.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 controller.checkPatientReg(name.getText(), surname.getText(), bdd.getText(),bdm.getText(),bdy.getText(), homeaddress.getText(), phonenumber.getText(), tribe.getText(), alivedead.getText());
             }
         });
-        panel.add(clicktoregister);
+        panel.add(clicktomodify);
 
         cleartext = new JButton("Clear Text");
         cleartext.setBounds(200,500,138,30);

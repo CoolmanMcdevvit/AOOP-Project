@@ -19,7 +19,7 @@ public class Session {
 
     public void setRole(int key){
         ArrayList temp = new ArrayList();
-        this.role = "2"; //return Registration.get(key).get(1);
+        this.role = "registration clerk"; //return Registration.get(key).get(1);
     }
 
     public String getRole(){

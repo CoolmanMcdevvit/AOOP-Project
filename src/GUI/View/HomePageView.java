@@ -33,10 +33,11 @@ public class HomePageView extends JFrame{
 
         // for "headder" of frame
         JPanel toppanel = new JPanel(new FlowLayout(FlowLayout.LEFT,10,20));
-        toppanel.setBackground(Color.BLUE);
+        toppanel.setBackground(Color.WHITE);
         JLabel head = new JLabel("Hospital Management");
         head.setFont(new Font("Arial", Font.PLAIN, 18));
         toppanel.add(head);
+        setLocationRelativeTo(null);
 
         // creates new panel to add buttons to
         JPanel p1 = new JPanel();
