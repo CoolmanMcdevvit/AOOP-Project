@@ -15,6 +15,4 @@ public class Homepage{
     public Homepage(){ patientdata= new HashMapData();
     }
 
-    public Map<Integer,Patient> getHashMap(){
-        return patientdata.getHashMapData();}
 }
