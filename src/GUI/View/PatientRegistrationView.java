@@ -22,22 +22,15 @@ public class PatientRegistrationView extends PatientInfoView {
 
 
     public PatientRegistrationView(PatRegistrationController controller){
+        super("Please enter Patient Data: ", controller);
         this.controller = controller;
         initGUI();
     }
 
     public void initGUI(){
-        System.out.println(view);
         setTitle("Registration Form");
         panel = getPanel();
         setMinimumSize(new Dimension(550, 600));
-
-        //Add label
-        toplabel = new JLabel("Please enter Patient Data: ");
-        toplabel.setFont(new Font("Arial", Font.BOLD, 15));
-        toplabel.setBounds(50,20,350,40);
-        panel.add(toplabel);
-
 
         //Button
         clicktoregister = new JButton("Register");
@@ -45,20 +38,12 @@ public class PatientRegistrationView extends PatientInfoView {
         clicktoregister.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                controller.check(getTextFieldsValues());
+                controller.check(getPatientTextFields());
             }
         });
         panel.add(clicktoregister);
         add(panel);
-        home = new JButton("Home");
-        home.setBounds(350, 500, 138, 30);
-        home.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e){
-                controller.returnHome();
-            }
-        });
-        panel.add(home);
+
         pack();
         setLocationRelativeTo(null);
 

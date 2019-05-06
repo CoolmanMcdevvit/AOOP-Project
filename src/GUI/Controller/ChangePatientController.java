@@ -1,24 +1,21 @@
 package GUI.Controller;
 
-import GUI.Model.Session;
 import GUI.View.ChangePatientView;
 import GUI.View.HomePageView;
-import GUI.View.PatientRegistrationView;
-import GUI.View.RegistrationView;
 
 import javax.swing.*;
 
-public class ChangePatientController{
+public class ChangePatientController extends PersonController{
 
     //private PatientRegistrationView view;
     private ChangePatientView view;
     private HomePageView hview;
     private JOptionPane uidstring;
 
-    public void check(String[] f) {
+    public void check(JTextField[] f) {
         int c = 0;
         for(int i=0; i<8; i++){
-            if(!f[i].equals("")){
+            if(!f[i].getText().equals("")){
                 c+=1;
             }
         }

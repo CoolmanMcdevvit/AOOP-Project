@@ -25,7 +25,7 @@ public class HomePageView extends JFrame{
 
     public void initGUI(){
         // Stops program on close
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
         //defines layout
         setLayout(new GridBagLayout());
         //sets title of window
@@ -97,7 +97,7 @@ public class HomePageView extends JFrame{
         staffregbutton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //controller.staffRegistrationPress();
+                controller.staffRegistrationPress();
             }
         });
         staffchangebutton.addActionListener(new ActionListener() {

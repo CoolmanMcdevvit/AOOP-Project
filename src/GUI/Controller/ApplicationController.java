@@ -1,10 +1,7 @@
 package GUI.Controller;
 
 import GUI.Model.Session;
-import GUI.View.ChangePatientView;
-import GUI.View.FindPatientView;
-import GUI.View.HomePageView;
-import GUI.View.PatientRegistrationView;
+import GUI.View.*;
 
 import javax.swing.*;
 
@@ -15,6 +12,8 @@ public class ApplicationController {
     private PatRegistrationController patientregistrationcontroller;
     private ChangePatientController changepatientcontroller;
     private FindPatientController findpatientcontroller;
+    private StaffRegistrationController staffregistrationcontroller;
+
 
 
     public void login(){
@@ -48,6 +47,13 @@ public class ApplicationController {
         FindPatientView view = new FindPatientView(findpatientcontroller);
         findpatientcontroller.setView(view,hview);
         findpatientcontroller.display();
+    }
+
+    public void staffRegistration(HomePageView hview){
+        staffregistrationcontroller = new StaffRegistrationController();
+        StaffRegistrationView view = new StaffRegistrationView(staffregistrationcontroller);
+        staffregistrationcontroller.setView(view, hview);
+        staffregistrationcontroller.display();
     }
 
     public static void main(String[] args){
