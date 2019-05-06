@@ -13,6 +13,7 @@ public class ApplicationController {
     private ChangePatientController changepatientcontroller;
     private FindPatientController findpatientcontroller;
     private StaffRegistrationController staffregistrationcontroller;
+    private StaffChangeController staffchangecontroller;
 
 
 
@@ -54,6 +55,13 @@ public class ApplicationController {
         StaffRegistrationView view = new StaffRegistrationView(staffregistrationcontroller);
         staffregistrationcontroller.setView(view, hview);
         staffregistrationcontroller.display();
+    }
+
+    public void staffChange(HomePageView hview){
+        staffchangecontroller = new StaffChangeController();
+        StaffChangeView view = new StaffChangeView(staffchangecontroller);
+        staffchangecontroller.setView(view, hview);
+        staffchangecontroller.display();
     }
 
     public static void main(String[] args){

@@ -103,7 +103,7 @@ public class HomePageView extends JFrame{
         staffchangebutton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //controller.staffChangePress();
+                controller.staffChangePress();
             }
         });
         stafffindbutton.addActionListener(new ActionListener() {

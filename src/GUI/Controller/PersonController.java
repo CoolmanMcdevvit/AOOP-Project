@@ -3,6 +3,8 @@ package GUI.Controller;
 import GUI.View.HomePageView;
 import GUI.View.PersonInfoView;
 
+import javax.swing.*;
+
 public class PersonController {
 
     private HomePageView hview;
@@ -21,5 +23,11 @@ public class PersonController {
     public void returnHome() {
         view.dispose();
         hview.setVisible(true);
+    }
+
+    public void clear(JTextField[] fields) {
+        for (int i = 0; i < 9; i++) {
+            fields[i].setText("");
+        }
     }
 }

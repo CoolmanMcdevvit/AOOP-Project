@@ -16,7 +16,6 @@ import java.text.SimpleDateFormat;
 public class PatientRegistrationView extends PatientInfoView {
 
     private PatRegistrationController controller;
-    private JLabel toplabel;
     private JButton clicktoregister, home;
     private JPanel panel;
 

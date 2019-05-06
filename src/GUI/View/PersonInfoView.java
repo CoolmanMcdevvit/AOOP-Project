@@ -90,9 +90,7 @@ public class PersonInfoView extends JFrame{
         cleartext.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                for(int i =0; i<9; i++){
-                    fields[i].setText("");
-                }
+                controller.clear(fields);
             }
         });
         panel.add(cleartext);

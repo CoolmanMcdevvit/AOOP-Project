@@ -21,20 +21,5 @@ public class PatRegistrationController extends PersonController{
         if(c == 8){
             System.out.print(f[1]);
         }
-
-    }
-
-    public void setView(PatientRegistrationView view,HomePageView hview){
-        //System.out.println(view);
-        this.view = view;
-        this.hview = hview;
-    }
-
-    public void display(){view.setVisible(true);}
-
-    public void returnHome(){
-        view.dispose();
-        hview.setVisible(true);
-
     }
 }

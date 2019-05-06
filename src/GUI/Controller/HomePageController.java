@@ -49,6 +49,12 @@ public class HomePageController{
             application.staffRegistration(view);
         }
     }
+
+    public void staffChangePress(){
+        if (session.getRole().equals("registration clerk")) {
+            application.staffChange(view);
+        }
+    }
 //    public void checkPatientReg(String n, String sn, String bd, String ha,String pn, String t, String ad) {
 //        homepage.patientRegModel(n,sn,bd,ha,pn,t,ad);
 //    }
