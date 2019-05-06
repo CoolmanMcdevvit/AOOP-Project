@@ -37,7 +37,7 @@ public class PatientRegistrationView extends PatientInfoView {
         clicktoregister.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                controller.check(getPatientTextFields());
+                controller.check(getTextFields());
             }
         });
         panel.add(clicktoregister);

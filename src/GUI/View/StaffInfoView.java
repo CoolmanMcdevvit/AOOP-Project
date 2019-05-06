@@ -14,8 +14,7 @@ public class StaffInfoView extends PersonInfoView {
         super(toplabel, controller);
         this.panel = getPanel();
         addStaffLabels(panel);
-        setStaffTextfields(panel);
-        buttonAdder(panel, getStaffTextFields());
+        buttonAdder(panel, getTextFields());
     }
 
     public void addStaffLabels(JPanel panel){
@@ -30,28 +29,5 @@ public class StaffInfoView extends PersonInfoView {
 
     }
 
-    public void setStaffTextfields(JPanel panel){
-        jobrole = new JTextField();
-        jobrole.setBounds(200, 380, 180, 30);
-        panel.add(jobrole);
-
-
-        department = new JTextField();
-        department.setBounds(200, 440, 180, 30);
-        panel.add(department);
-
-    }
-
-    public JTextField[] getStaffTextFields(){
-        JTextField[] fields = new JTextField[9];
-        JTextField[] personfields;
-        personfields = getTextFields();
-        for(int i =0; i<7; i++){
-            fields[i] = personfields[i];
-        }
-        fields[7] = jobrole;
-        fields[8] = department;
-        return fields;
-    }
 
 }

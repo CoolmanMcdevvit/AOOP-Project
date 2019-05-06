@@ -4,6 +4,9 @@ import GUI.View.HomePageView;
 import GUI.View.PersonInfoView;
 
 import javax.swing.*;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
 public class PersonController {
 
@@ -30,4 +33,27 @@ public class PersonController {
             fields[i].setText("");
         }
     }
+
+    public boolean checkBirthday(JTextField[] f) {
+        DateFormat format = new SimpleDateFormat("dd.MM.yyyy");
+        format.setLenient(false);
+        String date = f[2].getText() +"." + f[3].getText() + "." + f[4].getText();
+        try {
+            format.parse(date);
+            return true;
+        } catch (ParseException e) {
+            return false;
+        }
+    }
+
+   public boolean checkForBlanks(JTextField[] fields){
+       int c = 0;
+       for(int i=0; i<8; i++){
+           if(!fields[i].getText().equals("")){
+               c+=1;
+           }
+       }
+       return c == 8;
+   }
+
 }

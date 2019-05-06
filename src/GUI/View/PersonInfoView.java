@@ -13,7 +13,7 @@ public class PersonInfoView extends JFrame{
 
     private JLabel namelabel, surnamelabel, birthdatelabel, homeadresslabel,phonenumberlabel;
     protected JLabel toplabel;
-    private JTextField name, surname,homeaddress,phonenumber;
+    private JTextField name, surname,homeaddress,phonenumber, field7, field8;
     private JFormattedTextField bdd, bdm, bdy;
     private JPanel panel;
     protected PatientInfoView view;
@@ -82,6 +82,15 @@ public class PersonInfoView extends JFrame{
         phonenumber = new JTextField();
         phonenumber.setBounds(200, 320, 180, 30);
         panel.add(phonenumber);
+
+        field7 = new JTextField();
+        field7.setBounds(200, 380, 180, 30);
+        panel.add(field7);
+
+
+        field8 = new JTextField();
+        field8.setBounds(200, 440, 180, 30);
+        panel.add(field8);
     }
 
     public void buttonAdder(JPanel panel, JTextField[] fields){
@@ -132,6 +141,8 @@ public class PersonInfoView extends JFrame{
         fields[4] = bdy;
         fields[5] = homeaddress;
         fields[6] = phonenumber;
+        fields[7] = field7;
+        fields[8] = field8;
         return fields;
     }
 }

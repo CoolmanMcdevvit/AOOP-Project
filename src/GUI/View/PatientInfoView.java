@@ -20,8 +20,7 @@ public class PatientInfoView extends PersonInfoView{
         super(toplabel, controller);
         this.panel = getPanel();
         addPatientLabels(panel);
-        setPatientTextfields(panel);
-        buttonAdder(panel, getPatientTextFields());
+        buttonAdder(panel, getTextFields());
     }
 
     public void addPatientLabels(JPanel panel){
@@ -35,27 +34,4 @@ public class PatientInfoView extends PersonInfoView{
         panel.add(alivelabel);
     }
 
-    public void setPatientTextfields(JPanel panel){
-
-        tribe = new JTextField();
-        tribe.setBounds(200, 380, 180, 30);
-        panel.add(tribe);
-
-        alivedead = new JTextField();
-        alivedead.setBounds(200, 440, 180, 30);
-        panel.add(alivedead);
-    }
-
-
-    public JTextField[] getPatientTextFields(){
-        JTextField[] fields = new JTextField[9];
-        JTextField[] personfields;
-        personfields = getTextFields();
-        for(int i =0; i<7; i++){
-            fields[i] = personfields[i];
-        }
-        fields[7] = tribe;
-        fields[8] = alivedead;
-        return fields;
-        }
-    }
+}

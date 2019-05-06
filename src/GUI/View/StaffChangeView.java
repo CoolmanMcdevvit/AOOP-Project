@@ -27,7 +27,7 @@ public class StaffChangeView extends StaffInfoView{
         clicktoupdate.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                controller.check(getStaffTextFields());
+                controller.check(getTextFields());
             }
         });
         panel.add(clicktoupdate);

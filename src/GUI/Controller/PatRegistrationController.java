@@ -1,25 +1,28 @@
 package GUI.Controller;
 
+import GUI.Model.PatRegistration;
 import GUI.View.HomePageView;
 import GUI.View.PatientRegistrationView;
 
 import javax.swing.*;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 
 public class PatRegistrationController extends PersonController{
 
     private PatientRegistrationView view;
     private HomePageView hview;
+    private PatRegistration model;
+
+    PatRegistrationController(PatRegistration model){
+        this.model = model;
+    }
 
 
     public void check(JTextField[] f) {
-        int c = 0;
-        for(int i=0; i<8; i++){
-            if(!f[i].getText().equals("")){
-                c+=1;
-            }
-        }
-        if(c == 8){
-            System.out.print(f[1]);
+        if (checkBirthday(f) && checkForBlanks(f) && (f[8].getText().toLowerCase().equals("yes") || f[8].getText().toLowerCase().equals("no"))) {
+            model.registerPatient(f);
         }
     }
+
 }
