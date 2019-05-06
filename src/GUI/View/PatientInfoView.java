@@ -34,4 +34,4 @@ public class PatientInfoView extends PersonInfoView{
         panel.add(alivelabel);
     }
 
-}
+    }

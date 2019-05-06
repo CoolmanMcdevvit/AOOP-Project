@@ -1,26 +1,29 @@
-//package GUI.Model;
-//
-//public class Homepage {
-////private Patient p;
-////private Register r;
+package GUI.Model;
+
+import Hospital.src.main.java.Hospital.HashMapData;
+import Hospital.src.main.java.Hospital.Patient;
+
+import javax.swing.*;
+import java.util.Map;
+
+public class Homepage {
+
+//    protected static HashMapData hmd;
 //    private Session session;
 //
-//    public Homepage(Session s){
-//        this.session =  s;
+//    public Homepage(){
+//       hmd = new HashMapData();
 //    }
 //
-//    public checkaccess
-//
-////public void patientRegModel(String n, String sn, String bd, String ha,String pn, String t, String ad){
-////        if ((ad.toLowerCase().equals("alive") || ad.toLowerCase().equals("dead") && pn.length() == 8) && !n.isEmpty() && !sn.isEmpty() && !bd.isEmpty() && !ha.isEmpty() && !t.isEmpty() && !ad.isEmpty()) {
-////            //Main.patientSignUp(n,sn,bd,ha,pn,t,ad);
-////            p = new Patient(n,sn,bd,ha,pn,t,ad);
-////            r = new Register();
-////            r.register(p);
-////
-////        }
-////        else{
-////
-////        }
-////    }
+//    public HashMapData getHashmapData(){
+//        return hmd;
 //    }
+//
+//    public void registerPatient(JTextField[] fields){
+//        Patient p = new Patient();
+//        p.createPatient(fields[0].getText(), fields[1].getText(), fields[5].getText(), fields[6].getText(), fields[2].getText(), fields[3].getText(), fields[4].getText(), fields[7].getText(), fields[8].getText());
+//        hmd.registerPatient(p);
+//        hmd.printHMD();
+//    }
+
+}

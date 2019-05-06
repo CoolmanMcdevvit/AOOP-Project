@@ -1,5 +1,7 @@
 package GUI.Controller;
 
+import GUI.Model.Homepage;
+import GUI.Model.PatRegistration;
 import GUI.Model.Session;
 import GUI.View.*;
 
@@ -14,6 +16,12 @@ public class ApplicationController {
     private FindPatientController findpatientcontroller;
     private StaffRegistrationController staffregistrationcontroller;
     private StaffChangeController staffchangecontroller;
+    private PatRegistration patregistration;
+    private Homepage homePagemodel;
+
+    public ApplicationController(){
+        this.homePagemodel = new Homepage();
+    }
 
 
 
@@ -30,7 +38,8 @@ public class ApplicationController {
     }
 
     public void registration(HomePageView hview){
-        patientregistrationcontroller = new PatRegistrationController();
+        patregistration = new PatRegistration();
+        patientregistrationcontroller = new PatRegistrationController(patregistration);
         PatientRegistrationView view = new PatientRegistrationView(patientregistrationcontroller);
         patientregistrationcontroller.setView(view,hview);
         patientregistrationcontroller.display();

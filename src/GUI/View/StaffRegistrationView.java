@@ -28,7 +28,7 @@ public class StaffRegistrationView extends StaffInfoView {
         clicktoregister.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-               controller.check(getStaffTextFields());
+               controller.check(getTextFields());
             }
         });
         panel.add(clicktoregister);

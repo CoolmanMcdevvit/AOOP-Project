@@ -117,6 +117,7 @@ public class PersonInfoView extends JFrame{
     }
 
     public JPanel setDefaults(){
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         panel = new JPanel();
         panel.setLayout(null);
         panel.setSize(900, 650);
@@ -133,7 +134,7 @@ public class PersonInfoView extends JFrame{
     }
 
     public JTextField[] getTextFields(){
-        JTextField[] fields = new JTextField[7];
+        JTextField[] fields = new JTextField[9];
         fields[0] = name;
         fields[1] = surname;
         fields[2] = bdd;

@@ -37,7 +37,7 @@ public class ChangePatientView extends PatientInfoView {
         clicktomodify.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                controller.check(getPatientTextFields());
+                controller.check(getTextFields());
             }
         });
 
