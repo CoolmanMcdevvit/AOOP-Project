@@ -1,38 +1,23 @@
 package Hospital;
 
-public class Department {
+import java.awt.List;
+
+public abstract class Department {
 	
-	private String departmentName;
-	private int availBeds;
-	
-	private static int numberOfBeds = 200;
-	private static int availableBeds = 200;
-	
-	
+	public abstract String getName();
+	public abstract boolean Beds();
+	public abstract int NoBeds();
 	
 	
-	
-	public String getDepartmentName() {
-		return departmentName;
-	}
-	public void setDepartmentName(String departmentName) {
-		this.departmentName = departmentName;
-	}
-	public static int getNumberOfBeds() {
-		return numberOfBeds;
-	}
-	public static void setNumberOfBeds(int numberOfBeds) {
-		Department.numberOfBeds = numberOfBeds;
-	}
-	public int getAvailableBeds() {
-		return availableBeds;
-	}
-	public void setAvailableBeds(int plusminus) {   ///depends on discharge or admission if you get +1 or -1
-		availableBeds = availableBeds + plusminus; 
-		this.availBeds = availableBeds;
-	}
-	
-	
+	public static Department parseDepartment(String d) {
+		Department[] deps = new Department[] { new Emergency(), new Surgery(), new Medical() };
+		for (Department dep : deps) {
+			if(d.equals(dep.getName())) {
+				return dep;
+			}
+		}
+		return null;
+	}	
 	
 	
 }

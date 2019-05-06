@@ -6,6 +6,7 @@ public class Staff extends Person{
 	private int staffID;
 	private String jobRole;
 	private int phonenumber;
+	private String department;
 	
 	
 
@@ -13,19 +14,19 @@ public class Staff extends Person{
 	private static int phoneNumber = 55100000;
 	
 	
-	public void createStaff(String firstname, String lastname, String jobrole) {
+	public void createStaff(String firstname, String lastname, String jobrole, String department) {
 	
     	
 		this.firstname = firstname;
 		this.lastname = lastname;
 		this.jobRole = jobrole;
+		this.department = department;
 		setStaffID();
 		setEmail();
 		setPhonenumber();
 	}
 	
-	
-	
+
 	public String toString(){
         return ("\n" + "Firstname:		" + firstname + "\n" +  "Lastname:		" + lastname + "\n" +
         	"Staff ID:		" + staffID +	"\n" +
@@ -67,6 +68,11 @@ public class Staff extends Person{
 	public void setPhonenumber() {
 		phoneNumber = phoneNumber +1;
 		this.phonenumber = phoneNumber;
+	}
+	
+
+	public void setDepartment(String department) {
+		this.department = department;
 	}
 	
 	
