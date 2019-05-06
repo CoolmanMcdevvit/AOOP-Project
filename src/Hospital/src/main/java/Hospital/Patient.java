@@ -1,4 +1,4 @@
-package Hospital;
+package Hospital.src.main.java.Hospital;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -48,11 +48,7 @@ public class Patient extends Person {
 		setBirthday(bDay, bMonth, bYear);
 		setTribe(tribe);
 		String ALIVE = isAlive;
-		if (ALIVE == "Yes") {
-			this.isAlive = true;
-		} else{
-			this.isAlive = false;
-		}
+        this.isAlive = ALIVE == "Yes";
 		setDepartment("None");
 		//setPatientID();
 		//this.patientID = getPatientID();

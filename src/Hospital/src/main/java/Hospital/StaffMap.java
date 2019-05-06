@@ -1,4 +1,4 @@
-package Hospital;
+package Hospital.src.main.java.Hospital;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -18,11 +18,7 @@ public class StaffMap {
 	}
 	
 	public boolean IssIDValid(int ID) {
-		if (hashmapStaff.containsKey(ID)){
-			return true;
-		} else {
-			return false;
-		}
+        return hashmapStaff.containsKey(ID);
 	}
 	
 	public Staff SearchsID(int ID) {

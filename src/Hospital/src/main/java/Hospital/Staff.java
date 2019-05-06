@@ -1,4 +1,4 @@
-package Hospital;
+package Hospital.src.main.java.Hospital;
 
 public class Staff extends Person{
 	

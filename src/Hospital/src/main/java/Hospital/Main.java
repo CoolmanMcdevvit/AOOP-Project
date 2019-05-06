@@ -1,4 +1,4 @@
-package Hospital;
+package Hospital.src.main.java.Hospital;
 
 import java.util.Map;
 import java.util.Scanner;
