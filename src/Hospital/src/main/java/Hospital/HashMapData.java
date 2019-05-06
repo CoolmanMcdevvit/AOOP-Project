@@ -9,7 +9,7 @@ import java.util.Map;
 
 public class HashMapData {
 	
-	private  HashMap<Integer, Patient> hashmapdata;
+	public  HashMap<Integer, Patient> hashmapdata;
 //	protected Map<Integer, Staff> hashmapStaff = new HashMap<Integer, Staff>();
 
 	public HashMapData() {

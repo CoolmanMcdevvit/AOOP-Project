@@ -4,26 +4,17 @@ import Hospital.src.main.java.Hospital.HashMapData;
 import Hospital.src.main.java.Hospital.Patient;
 
 import javax.swing.*;
+import java.util.HashMap;
 import java.util.Map;
 
-public class Homepage {
+public class Homepage{
 
-//    protected static HashMapData hmd;
-//    private Session session;
-//
-//    public Homepage(){
-//       hmd = new HashMapData();
-//    }
-//
-//    public HashMapData getHashmapData(){
-//        return hmd;
-//    }
-//
-//    public void registerPatient(JTextField[] fields){
-//        Patient p = new Patient();
-//        p.createPatient(fields[0].getText(), fields[1].getText(), fields[5].getText(), fields[6].getText(), fields[2].getText(), fields[3].getText(), fields[4].getText(), fields[7].getText(), fields[8].getText());
-//        hmd.registerPatient(p);
-//        hmd.printHMD();
-//    }
+    public HashMapData patientdata;
 
+
+    public Homepage(){ patientdata= new HashMapData();
+    }
+
+    public Map<Integer,Patient> getHashMap(){
+        return patientdata.getHashMapData();}
 }

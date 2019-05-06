@@ -1,6 +1,7 @@
 package GUI.Controller;
 
 //import GUI.Model.Homepage;
+import GUI.Model.Homepage;
 import GUI.Model.Session;
 import GUI.View.HomePageView;
 
@@ -10,16 +11,18 @@ public class HomePageController{
     private HomePageView view;
     private Session session;
     private ApplicationController application;
+    private Homepage model;
 
     public HomePageController(Session s){
         this.session = s;
         this.application = new ApplicationController();
+        this.model = new Homepage();
     }
 
     public void patRegistrationPress(){
         if(session.getRole().equals("registration clerk")){
             view.setVisible(false);
-            application.registration(view);
+            application.registration(view,model.patientdata);
         }
     }
 
@@ -38,9 +41,9 @@ public class HomePageController{
         }
     }
 
-    public void patAdmissionPress() {
+    public void patAdmitMovePress(){
         if (session.getRole().equals("registration clerk")) {
-            application.registration(view);
+            application.admitMove(view);
         }
     }
 
