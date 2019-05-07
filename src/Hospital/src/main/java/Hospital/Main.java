@@ -12,9 +12,7 @@ public class Main {
 		
 		Patient p = new Patient();
 		Patient S = new Patient();
-		p.setPatient("Solvi", "Palsson", "hommagata", 2323, "15.07.1996", "api", true);
-		S.setPatient("Steinn", "Erlendsson", "hommagata", 243, "16.06.1991", "api", true);
-		
+
 		hmd.registerPatient(p);
 		hmd.registerPatient(S);
 		hmd.printHMD();

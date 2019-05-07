@@ -55,7 +55,7 @@ public class HomePageController{
 
     public void staffChangePress(){
         if (session.getRole().equals("registration clerk")) {
-            application.staffChange(view);
+            application.staffChange(view, model.staffdata);
         }
     }
 

@@ -27,7 +27,7 @@ public class ChangePatientView extends PatientInfoView {
     }
 
     public void initGUI(){
-        setTitle("Registration Form");
+        setTitle("Change Patient Form");
         panel = getPanel();
 
         //Button

@@ -6,7 +6,6 @@ public class Staff extends Person{
 	private int staffID;
 	private String jobRole;
 	private int phonenumber;
-	private String department;
 	
 	
 
@@ -27,10 +26,11 @@ public class Staff extends Person{
 	}
 	
 
+
 	public String toString(){
         return ("\n" + "Firstname:		" + firstname + "\n" +  "Lastname:		" + lastname + "\n" +
         	"Staff ID:		" + staffID +	"\n" +
-    		"email:		" + email + "\n" + "Phonenumber:		" + phonenumber + "\n" +
+    		"email:		" + email + "\n" + "Phonenumber:		" + phonenumber + "\n" + "Department:		" + department +
         	 "\n");
     }
 	
@@ -54,6 +54,7 @@ public class Staff extends Person{
 	public Integer getStaffID() {
 		return staffID;
 	}
+
 	
 	public void setStaffID() {
 		staffnumber = staffnumber+1;
@@ -69,11 +70,5 @@ public class Staff extends Person{
 		phoneNumber = phoneNumber +1;
 		this.phonenumber = phoneNumber;
 	}
-	
-
-	public void setDepartment(String department) {
-		this.department = department;
-	}
-	
 	
 }

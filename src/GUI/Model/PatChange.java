@@ -7,7 +7,7 @@ import Hospital.src.main.java.Hospital.Patient;
 import javax.swing.*;
 import java.util.Map;
 
-public class PatChange {
+public class PatChange implements Change{
 
     private HashMapData data;
     private Map<Integer, Patient> mapp;
@@ -25,7 +25,7 @@ public class PatChange {
         p.setAddress(f[5].getText());
         p.setPhonenumber(f[6].getText());
         p.setTribe(f[7].getText());
-        //p.setAlivestatus(f[8].getText());
+        p.setAlivestatus(f[8].getText());
     }
 
     public Patient uidFind(String uid){

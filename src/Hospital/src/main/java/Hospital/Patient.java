@@ -13,16 +13,8 @@ public class Patient extends Person {
     private int patientID;
     private String tribe;
     private static int patientnumber=10000;
-    private String department;
     private int bednumber;
-    
-    public String getDepartment() {
-		return department;
-	}
 
-	public void setDepartment(String department) {
-		this.department = department;
-	}
 
 	public int getBednumber() {
 		return bednumber;

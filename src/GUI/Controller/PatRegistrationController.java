@@ -24,7 +24,7 @@ public class PatRegistrationController extends PersonController{
 
     public void check(JTextField[] f) {
         if (checkBirthday(f) && checkForBlanks(f,8) && f[6].getText().length()==8 && (f[8].getText().toLowerCase().equals("yes") || f[8].getText().toLowerCase().equals("no"))) {
-            model.registerPatient(f);
+            model.regsisterInput(f);
         }
     }
 

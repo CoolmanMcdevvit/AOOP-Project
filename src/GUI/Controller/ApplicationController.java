@@ -22,6 +22,7 @@ public class ApplicationController {
     private FacilityStatusController facilitystatuscontroller;
     private ParticipationListsController participationlistscontroller;
     private PatChange patchange;
+    private StaffChange staffchange;
 
 
 
@@ -78,11 +79,13 @@ public class ApplicationController {
     }
 
 
-    public void staffChange(HomePageView hview){
-        staffchangecontroller = new StaffChangeController();
+    public void staffChange(HomePageView hview, StaffMap sm){
+        staffchange = new StaffChange(sm);
+        staffchangecontroller = new StaffChangeController(staffchange);
         StaffChangeView view = new StaffChangeView(staffchangecontroller);
         staffchangecontroller.setView(view, hview);
         staffchangecontroller.display();
+        staffchangecontroller.displayOptionPane(view);
     }
 
     public void facilityStatus(HomePageView hview){

@@ -11,6 +11,10 @@ public class StaffMap {
 		hashmapStaff = new HashMap<Integer, Staff>();
 		
 	}
+	public Map<Integer, Staff> getHashMapStaff(){
+		return hashmapStaff;
+	}
+
 	
 	public void registerStaff(Staff s) {
 		hashmapStaff.put(s.getStaffID(), s);
