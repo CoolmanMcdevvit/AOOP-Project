@@ -90,7 +90,7 @@ public class AdmitMoveView extends JFrame{
         panel.add(move);
 
         discharge = new JButton("Discharge");
-        discharge.setBounds(50, 300, 420, 30);
+        discharge.setBounds(50, 300, 438, 30);
         discharge.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e){

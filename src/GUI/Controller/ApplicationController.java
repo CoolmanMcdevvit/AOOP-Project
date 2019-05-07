@@ -19,42 +19,52 @@ public class ApplicationController {
     private FindPatientController findpatientcontroller;
     private StaffRegistrationController staffregistrationcontroller;
     private StaffChangeController staffchangecontroller;
-    private PatRegistration patregistration;
+    private FindStaffController findstaffcontroller;
     private AdmitMoveController admitmovecontroller;
     private StaffRegistration staffregistration;
     private FacilityStatusController facilitystatuscontroller;
     private ParticipationListsController participationlistscontroller;
+
+    //insert models here
     private PatChange patchange;
     private StaffChange staffchange;
     private FindPatientModel findpatientmodel;
     private AdmitMove admitmove;
     private FindStaffModel findstaffmodel;
-    private FindStaffController findstaffcontroller;
     private FacilityStatusModel facilitystatusmodel;
+    private PatRegistration patregistration;
 
 
-
-
+    // initial login view, creates login controller and calls display method
     public void login(){
         logincontroller = new LoginController();
         logincontroller.display();
     }
 
+    //Main Page with access to all other views (excl Login)
     public void HomePage(Session s){
+        //Creates Homepage controller
         homePagecontroller = new HomePageController(s);
+        //assigns Homepagecontroller to Homepageview constructor
         HomePageView h = new HomePageView(homePagecontroller);
+        //sets variables then displays view
         homePagecontroller.setView(h);
         homePagecontroller.display();
     }
 
+    // requires HashMap class (holds Patient information) to be part of Registration constructor to ensure that same hashmap is always worked on.
     public void registration(HomePageView hview, HashMapData hmd){
+        //passing HashMapData class to Registration model so it is able to manipulate the data
         patregistration = new PatRegistration(hmd);
+        //same prinicple as HomePage
         patientregistrationcontroller = new PatRegistrationController(patregistration);
         PatientRegistrationView view = new PatientRegistrationView(patientregistrationcontroller);
         patientregistrationcontroller.setView(view,hview);
         patientregistrationcontroller.display();
     }
 
+
+    // all below share same principle as the registration method
     public void changePatient(HomePageView hview, HashMapData hmd){
         patchange = new PatChange(hmd);
         changepatientcontroller = new ChangePatientController(patchange);
@@ -121,6 +131,8 @@ public class ApplicationController {
         findstaffcontroller.display();
     }
 
+
+    // pushing the update database button will show either update or unsucessfull depending on outcome
     public void updateDatabase(){
         //Let's call function here
         try{
@@ -135,6 +147,7 @@ public class ApplicationController {
 
     }
 
+    // main argument to launch GUI
     public static void main(String[] args){
         ApplicationController app = new ApplicationController();
         app.login();

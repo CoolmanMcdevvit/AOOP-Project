@@ -6,6 +6,7 @@ import GUI.View.ParticipationListsView;
 import GUI.View.PersonInfoView;
 import Hospital.src.main.java.Hospital.HashMapData;
 
+
 public class ParticipationListsController {
 
     private HomePageView hview;

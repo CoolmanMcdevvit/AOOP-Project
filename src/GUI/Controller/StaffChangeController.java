@@ -8,7 +8,6 @@ import javax.swing.*;
 
 public class StaffChangeController extends PersonController {
 
-    public HomePageView hview;
     public StaffChangeView view;
     public StaffChange model;
 
@@ -16,13 +15,15 @@ public class StaffChangeController extends PersonController {
         this.model = mdl;
     }
 
+
+    // ensures there are no blanks in input from JTextfields and passes to model to update StaffMap
     public void update(JTextField[] f){
         if(checkForBlanks(f,3)){
             model.update(f);
         }
     }
 
-
+    //similar concept to that seen in ChangePatientController
     public void displayOptionPane(StaffChangeView view){
         String uidsearch = JOptionPane.showInputDialog("please enter UID of Staff Memeber");
         //call model to search for uidsearch
