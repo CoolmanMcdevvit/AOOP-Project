@@ -53,15 +53,7 @@ public class PersonInfoView extends JFrame{
     }
 
     public void buttonAdder(JPanel panel, JTextField[] fields){
-        cleartext = new JButton("Clear Text");
-        cleartext.setBounds(200, 500, 138, 30);
-        cleartext.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                controller.clear(fields);
-            }
-        });
-        panel.add(cleartext);
+
 
         add(panel);
         home = new JButton("Home");

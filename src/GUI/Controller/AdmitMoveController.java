@@ -21,6 +21,7 @@ public class AdmitMoveController{
     }
 
     public void display() {
+        hview.setVisible(false);
         view.setVisible(true);
     }
 

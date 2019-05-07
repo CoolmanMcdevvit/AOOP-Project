@@ -17,6 +17,7 @@ public class PatientRegistrationView extends PatientInfoView {
     private PatRegistrationController controller;
     private JButton clicktoregister, home;
     private JPanel panel;
+    private JButton cleartext;
 
 
     public PatientRegistrationView(PatRegistrationController controller){
@@ -31,6 +32,16 @@ public class PatientRegistrationView extends PatientInfoView {
         setMinimumSize(new Dimension(550, 600));
 
         //Button
+        cleartext = new JButton("Clear Text");
+        cleartext.setBounds(200, 500, 138, 30);
+        cleartext.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                controller.clear(getPatientTextFields());
+            }
+        });
+        panel.add(cleartext);
+
         clicktoregister = new JButton("Register");
         clicktoregister.setBounds(50,500,138,30);
         clicktoregister.addActionListener(new ActionListener() {

@@ -11,7 +11,7 @@ public class StaffRegistrationView extends StaffInfoView {
 
     private StaffRegistrationController controller;
     private JPanel panel;
-    private JButton clicktoregister;
+    private JButton clicktoregister, cleartext;
 
     public StaffRegistrationView(StaffRegistrationController controller){
         super("Please enter Staff Data:",controller);
@@ -23,6 +23,15 @@ public class StaffRegistrationView extends StaffInfoView {
         panel = getPanel();
         setTitle("Staff Registration");
 
+        cleartext = new JButton("Clear Text");
+        cleartext.setBounds(200, 500, 138, 30);
+        cleartext.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                controller.clear(getStaffTextFields());
+            }
+        });
+        panel.add(cleartext);
 
         clicktoregister = new JButton("Register");
         clicktoregister.setBounds(50,500,138,30);
