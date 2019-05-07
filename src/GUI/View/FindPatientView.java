@@ -38,15 +38,6 @@ public class FindPatientView extends JFrame {
         this.controller = controller;
         initGUI();
     }
-    public void initTable(String s,String search){
-
-        final String[] columnNames = {"ID","Name","Surname","Birth date","Address","Phone number","Alive","Tribe"};
-        String [][] data = controller.findPatient(s,search);
-        resultstable = new JTable();
-        //resultstable.setModel(new DefaultTableModel(data,columnNames));
-        resultspanel.add(resultstable);
-
-    }
 
     private TableRowSorter<TableModel> rowSorter;
 
@@ -63,12 +54,9 @@ public class FindPatientView extends JFrame {
         panel.setBorder(BorderFactory.createLineBorder(Color.black));
         setMinimumSize(new Dimension(550,600));
 
+        String [] columns = {"ID","Name","SUR","NN","DD","EE","DD","TT"};
+        Object[][] data={{"1","M","j","1222","asdads","123123","yes","jaimaican"},{"2","G","E","1222","asdads","123123","yes","jaimaican"},{"4","tTT","TTT","1222","asdads","123123","yes","jaimaican"}};
 
-
-//        searchlabel = new JLabel("Search");
-//        searchlabel.setBounds(270,10,250,40);
-//        searchlabel.setFont(new Font("Arial",Font.BOLD,30));
-//        panel.add(searchlabel);
 
         searchtextfield = new JTextField();
         searchtextfield.setBounds(160,30,320,30);
@@ -98,11 +86,16 @@ public class FindPatientView extends JFrame {
 
 
 
-        resultspanel = new JScrollPane();
-        resultspanel.setLayout(null);
-        resultspanel.setBounds(5,150,525,400);
-        resultspanel.setBorder(BorderFactory.createLineBorder(Color.black));
 
+
+
+        resultstable = new JTable(data,columns);
+        resultstable.setBounds(30,180,400,350);
+
+        //resultspanel.setViewportView(resultstable);
+//        resultstable.setModel(new DefaultTableModel());
+//        DefaultTableModel model = (DefaultTableModel)resultstable.getModel();
+//        model.addColumn("Name");model.addColumn("Surname");
 
 
         searchbutton = new JButton("Search");
@@ -110,7 +103,15 @@ public class FindPatientView extends JFrame {
         searchbutton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e){
-                controller.findPatient(radiobuttons.getSelection().getActionCommand(),searchtextfield.getText());
+                //controller.findPatient(radiobuttons.getSelection().getActionCommand(),searchtextfield.getText());
+//                int row = 0;
+//                for(int i=0;i<data.length;i++){
+//                    System.out.println("bum");
+//                    model.addRow(new Object[0]);
+//                    model.setValueAt(data[i][1],row,0);
+//                    model.setValueAt(data[i][2],row,1);
+//                    row++;
+//                }
             }
         });
         panel.add(searchbutton);
@@ -126,12 +127,24 @@ public class FindPatientView extends JFrame {
         panel.add(homebutton);
 
 
+        resultspanel = new JScrollPane(resultstable);
+        resultspanel.setBounds(5,150,525,400);
+//        resultspanel.setBorder(BorderFactory.createLineBorder(Color.black));
+
+
+        add(resultspanel);
+
+
 
 
         add(panel);
-        add(resultspanel);
+
         pack();
         setLocationRelativeTo(null);
 
     }
+
+
 }
+
+
