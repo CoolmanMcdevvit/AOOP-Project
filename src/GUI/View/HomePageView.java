@@ -49,7 +49,7 @@ public class HomePageView extends JFrame{
         patregbutton = new JButton("Patient Registration");
         patchangebutton = new JButton("Change Patient Information");
         patfindbutton = new JButton("Find Patient");
-        patadmissionbutton = new JButton("Admit/Move patient");
+        patadmissionbutton = new JButton("Admit/Move/Discharge patient");
         patdischargebutton = new JButton("Discharge Patient");
 
         //defines what to do on button press

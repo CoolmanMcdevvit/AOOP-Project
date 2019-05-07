@@ -28,7 +28,7 @@ public class AdmitMoveView extends JFrame{
         panel.setSize(900, 600);
         setLayout(null);
         setBackground(Color.WHITE);
-        setMinimumSize(new Dimension(600, 350));
+        setMinimumSize(new Dimension(600, 400));
 
         toplabel = new JLabel("Please enter new or updated information for patient: ");
         toplabel.setFont(new Font("Arial", Font.BOLD, 15));
@@ -90,7 +90,7 @@ public class AdmitMoveView extends JFrame{
         panel.add(move);
 
         discharge = new JButton("Discharge");
-        discharge.setBounds(350, 300, 420, 30);
+        discharge.setBounds(50, 300, 420, 30);
         discharge.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e){
