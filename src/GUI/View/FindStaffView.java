@@ -1,29 +1,28 @@
 package GUI.View;
 
-import GUI.Controller.FindPatientController;
+import GUI.Controller.FindStaffController;
 
 import javax.swing.*;
 import javax.swing.table.TableModel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class FindPatientView extends FindView{
+public class FindStaffView extends FindView {
 
     private JScrollPane resultspanel;
     private JLabel searchlabel;
     private JButton searchbutton;
     private JTable resultstable;
     private TableModel tablemodel;
-    private FindPatientController controller;
+    private FindStaffController controller;
     private JPanel panel;
 
 
-    public FindPatientView(FindPatientController controller){
+    public FindStaffView(FindStaffController controller){
         super(controller);
         this.controller = controller;
         this.panel = getPanel();
         addButton(panel);
-
     }
 
     public void addButton(JPanel panel){
@@ -32,7 +31,7 @@ public class FindPatientView extends FindView{
         searchbutton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e){
-                tablemodel = controller.findPatient(getRadiobuttons().getSelection().getActionCommand(),getTextfield().getText());
+                tablemodel = controller.findStaff(getRadiobuttons().getSelection().getActionCommand(),getTextfield().getText());
                 resultstable = new JTable(tablemodel);
                 resultstable.setBounds(30,180,850,350);
                 resultspanel = new JScrollPane(resultstable);
@@ -45,5 +44,4 @@ public class FindPatientView extends FindView{
         add(panel);
         pack();
     }
-
 }

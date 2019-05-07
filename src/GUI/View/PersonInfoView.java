@@ -58,7 +58,7 @@ public class PersonInfoView extends JFrame{
         cleartext.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                controller.clear(fields);
+                //controller.clear(fields);
             }
         });
         panel.add(cleartext);

@@ -1,6 +1,7 @@
 package GUI.Controller;
 
 import GUI.Model.FindPatientModel;
+import GUI.Model.FindStaffModel;
 import GUI.View.FindView;
 import GUI.View.HomePageView;
 import Hospital.src.main.java.Hospital.HashMapData;
@@ -12,21 +13,18 @@ import javax.swing.table.TableModel;
 import java.util.List;
 
 
-public class FindPatientController extends FindController{
+public class FindStaffController extends FindController{
 
-    private List<Patient> patientList;
-    private HashMapData hm;
-    private FindPatientModel model;
+    private FindStaffModel model;
     private Object [][] data;
     private TableModel table;
 
-    public FindPatientController(FindPatientModel mdl) {
+    public FindStaffController(FindStaffModel mdl) {
         this.model = mdl;
     }
 
-
-    public TableModel findPatient(String selection, String search){
-        String [] columns = {"Name","Surname","Address","Birthday","ID","Tribe","Phone Number","Alive","Department","Bed Nr."};
+    public TableModel findStaff(String selection, String search){
+        String [] columns = {"Name","Surname","ID","E-Mail","Role"};
 
         try{
 
@@ -56,5 +54,5 @@ public class FindPatientController extends FindController{
         catch (Exception e){return table;}
     }
 
-    }
 
+}

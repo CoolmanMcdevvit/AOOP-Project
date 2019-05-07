@@ -1,5 +1,8 @@
 package GUI.Controller;
 
+import GUI.Model.FindPatientModel;
+import GUI.Model.PatRegistration;
+import GUI.Model.Session;
 import GUI.Model.*;
 import GUI.View.*;
 import Hospital.src.main.java.Hospital.HashMapData;
@@ -23,7 +26,10 @@ public class ApplicationController {
     private ParticipationListsController participationlistscontroller;
     private PatChange patchange;
     private StaffChange staffchange;
+    private FindPatientModel findpatientmodel;
     private AdmitMove admitmove;
+    private FindStaffModel findstaffmodel;
+    private FindStaffController findstaffcontroller;
 
 
 
@@ -57,8 +63,9 @@ public class ApplicationController {
         changepatientcontroller.displayOptionPane(view);
     }
 
-    public void findPatient(HomePageView hview){
-        findpatientcontroller = new FindPatientController();
+    public void findPatient(HomePageView hview, HashMapData hmd){
+        findpatientmodel = new FindPatientModel(hmd);
+        findpatientcontroller = new FindPatientController(findpatientmodel);
         FindPatientView view = new FindPatientView(findpatientcontroller);
         findpatientcontroller.setView(view,hview);
         findpatientcontroller.display();
@@ -102,6 +109,14 @@ public class ApplicationController {
         ParticipationListsView view = new ParticipationListsView(participationlistscontroller);
         participationlistscontroller.setView(view,hview);
         participationlistscontroller.display();
+    }
+
+    public void findStaff(HomePageView hview,StaffMap sm){
+        findstaffmodel = new FindStaffModel(sm);
+        findstaffcontroller = new FindStaffController(findstaffmodel);
+        FindStaffView view = new FindStaffView(findstaffcontroller);
+        findstaffcontroller.setView(view,hview);
+        findstaffcontroller.display();
     }
 
     public void updateDatabase(){

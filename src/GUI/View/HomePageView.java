@@ -14,7 +14,7 @@ import java.text.SimpleDateFormat;
 public class HomePageView extends JFrame{
     private JButton patregbutton,patchangebutton , patfindbutton, patadmissionbutton, facilitySButton, participationLButton,updateDButton;
     private JButton staffregbutton, staffchangebutton, stafffindbutton;
-    private JButton patdischargebutton;
+    private JButton  patdischargebutton;
     private HomePageController controller;
 
 
@@ -117,7 +117,7 @@ public class HomePageView extends JFrame{
         stafffindbutton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //controller.staffFindPress();
+                controller.findStaffPress();
             }
         });
 

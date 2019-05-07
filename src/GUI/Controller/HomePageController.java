@@ -37,7 +37,7 @@ public class HomePageController{
     public void patFindPress() {
         if (session.getRole().equals("registration clerk")) {
             view.setVisible(false);
-            application.findPatient(view);
+            application.findPatient(view, model.patientdata);
         }
     }
 
@@ -70,6 +70,13 @@ public class HomePageController{
         if (session.getRole().equals("registration clerk")){
             view.setVisible(false);
             application.participationLists(view);
+        }
+    }
+
+    public void findStaffPress(){
+        if (session.getRole().equals("registration clerk")){
+            view.setVisible(false);
+            application.findStaff(view,model.staffdata);
         }
     }
     public void updateDatabasePress(){

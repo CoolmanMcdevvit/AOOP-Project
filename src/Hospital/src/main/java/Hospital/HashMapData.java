@@ -1,5 +1,6 @@
 package Hospital.src.main.java.Hospital;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -10,7 +11,7 @@ import java.util.Map;
 public class HashMapData {
 	
 	public  HashMap<Integer, Patient> hashmapdata;
-//	protected Map<Integer, Staff> hashmapStaff = new HashMap<Integer, Staff>();
+	public HashMap<Integer, Staff> hashmapStaff;
 
 	public HashMapData() {
 		hashmapdata = new HashMap<Integer, Patient>();
@@ -52,49 +53,97 @@ public class HashMapData {
 		}
 	}
 
+	public Object[][] SearchPID(int ID) {
 
-public List<Patient> SearchPFirstName(String firstNameToCompare) {
+
+		Object[][] output = new String[1][10];
+		Patient pt = hashmapdata.get(ID);
+
+		output[0][0] = pt.getFirstname();
+		output[0][1] = pt.getLastname();
+		output[0][2] = pt.getAddress();
+		output[0][3] = pt.getBirthday();
+		output[0][4] = String.valueOf(pt.getPatientID());
+		output[0][5] = pt.getTribe();
+		output[0][6] = pt.getPhonenumberString();
+		output[0][7] = pt.getAlivestatus();
+		output[0][8] = pt.getDepartment();
+		output[0][9] = String.valueOf(pt.getBednumber());
+		System.out.println(output[0][0]);
+		return output;
+	}
+
+
+
+
+	public Object [][] SearchPFirstName(String firstNameToCompare) {
 
 		List<Patient> patList = new ArrayList<Patient>();
 
 		Iterator<Patient> iterator = hashmapdata.values().iterator();
 		while (iterator.hasNext()) {
-	        Patient patient = iterator.next();
-	        if (patient.getFirstname().equals(firstNameToCompare)) {
-	        	System.out.println(hashmapdata.get(patient.getPatientID()));
-	        	patList.add(patient);
-	        }
-	    }
-
-		if (patList.isEmpty()) {
-			System.out.println("There is no patient registered with that first name");
-			return null;
-		} else {
-			return patList;
+			Patient patient = iterator.next();
+			if (patient.getFirstname().equals(firstNameToCompare)) {
+				patList.add(patient);
+			}
 		}
+		int i = 0;
+		Object [][] output = new String[patList.size()][10];
+		for(Patient pt: patList) {
+
+			output[i][0] = pt.getFirstname();
+			System.out.println(output[i][0]);
+			output[i][1] = pt.getLastname();
+			output[i][2] = pt.getAddress();
+			output[i][3] = pt.getBirthday();
+			output[i][4] = String.valueOf(pt.getPatientID());
+			output[i][5] = pt.getTribe();
+			output[i][6] = pt.getPhonenumberString();
+			output[i][7] = pt.getAlivestatus();
+			output[i][8] = pt.getDepartment();
+			output[i][9] = String.valueOf(pt.getBednumber());
+
+			i = i+1;
+		}
+
+
+		return output;
+
 	}
 
-public List<Patient> SearchPLastName(String lastNameToCompare) {
+	public Object[][] SearchPLastName(String lastNameToCompare) {
 
-	List<Patient> patList = new ArrayList<Patient>();
+		List<Patient> patList = new ArrayList<Patient>();
 
-	Iterator<Patient> iterator = hashmapdata.values().iterator();
-	while (iterator.hasNext()) {
-        Patient patient = iterator.next();
-        if (patient.getLastname().equals(lastNameToCompare)) {
-        	System.out.println(hashmapdata.get(patient.getPatientID()));
-        	patList.add(patient);
-        }
-    }
+		Iterator<Patient> iterator = hashmapdata.values().iterator();
+		while (iterator.hasNext()) {
+			Patient patient = iterator.next();
+			if (patient.getLastname().equals(lastNameToCompare)) {
+				patList.add(patient);
+			}
+		}
+		int i = 0;
+		Object[][] output = new String[patList.size()][10];
+		for(Patient pt: patList) {
 
-	if (patList.isEmpty()) {
-		System.out.println("There is no one with that last name");
-		return patList;
-	} else {
-		return patList;
+			output[i][0] = pt.getFirstname();
+			output[i][1] = pt.getLastname();
+			output[i][2] = pt.getAddress();
+			output[i][3] = pt.getBirthday();
+			output[i][4] = String.valueOf(pt.getPatientID());
+			output[i][5] = pt.getTribe();
+			output[i][6] = pt.getPhonenumberString();
+			output[i][7] = pt.getAlivestatus();
+			output[i][8] = pt.getDepartment();
+			output[i][9] = String.valueOf(pt.getBednumber());
+
+			i = i+1;
 		}
 
-}
+
+		return output;
+
+	}
 
 	public void printHMD() {
 		System.out.print(hashmapdata.values());
@@ -136,10 +185,10 @@ public List<Patient> SearchPLastName(String lastNameToCompare) {
 				return;
 			}
 			//System.out.println("Enter the bed number you want to assing");
-			String i = "17";
-			if(isBedavailable(i, D.getName()) == true) {
+
+			if(isBedavailable(bed, D.getName()) == true) {
 				P.setDepartment(D.getName());
-				P.setBednumber(i);
+				P.setBednumber(bed);
 			}else return;
 
 		}else if (D.Beds()== false) {
