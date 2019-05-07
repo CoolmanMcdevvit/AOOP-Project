@@ -80,18 +80,16 @@ public class HomePageController{
             application.findStaff(view,model.staffdata);
         }
     }
-    public void updateDatabasePress(){
-        application.updateDatabase();
+    public void updateDatabasePress(){try{model.update();
+        JOptionPane.showMessageDialog(null,
+                "Database Updated",
+                "",
+                JOptionPane.WARNING_MESSAGE);}
+        catch (Exception e){JOptionPane.showMessageDialog(null,
+            "Unsuccessful Operation",
+            "",
+            JOptionPane.WARNING_MESSAGE);}
     }
-//    public void checkPatientReg(String n, String sn, String bd, String ha,String pn, String t, String ad) {
-//        homepage.patientRegModel(n,sn,bd,ha,pn,t,ad);
-//    }
-//    public void regPopup(){
-//        application.registration();
-//    }
-//    public void searchPatientReg(String n, String sn, String bd, String ha,String pn, String t, String ad){
-//
-//    }
 
     public void setView(HomePageView view){
         this.view = view;

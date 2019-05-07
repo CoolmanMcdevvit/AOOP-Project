@@ -21,5 +21,7 @@ public class Homepage{
     public void populate(){
         patientdata.initializeData();
     }
+    public void update(){
+        staffdata.closeData();}
 
 }

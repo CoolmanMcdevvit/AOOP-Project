@@ -121,19 +121,6 @@ public class ApplicationController {
         findstaffcontroller.display();
     }
 
-    public void updateDatabase(){
-        //Let's call function here
-        try{
-        JOptionPane.showMessageDialog(null,
-                "Database Updated",
-                "",
-                JOptionPane.WARNING_MESSAGE);}
-        catch (Exception e){JOptionPane.showMessageDialog(null,
-                "Unsuccessful Operation",
-                "",
-                JOptionPane.WARNING_MESSAGE);}
-
-    }
 
     public static void main(String[] args){
         ApplicationController app = new ApplicationController();
