@@ -12,106 +12,168 @@ import java.awt.event.ActionListener;
 import java.text.SimpleDateFormat;
 
 public class HomePageView extends JFrame{
-    private JTextField name, surname, birthdate,homeaddress,phonenumber,tribe,alivedead;
-    private JFormattedTextField bd;
-    private JButton patregbutton, patsearchbutton;
+    private JButton patregbutton,patchangebutton , patfindbutton, patadmissionbutton, facilitySButton, participationLButton,updateDButton;
+    private JButton staffregbutton, staffchangebutton, stafffindbutton;
+    private JButton  patdischargebutton;
     private HomePageController controller;
 
 
-    public HomePageView(){
+
+    public HomePageView(HomePageController controller){
+        this.controller = controller;
         initGUI();
     }
 
-    HomePageView(HomePageController controller){
-        this.controller = controller;
-    }
-
     public void initGUI(){
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        // Stops program on close
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        //defines layout
         setLayout(new GridBagLayout());
+        //sets title of window
         setTitle("Hospital Management System");
 
+        // for "headder" of frame
         JPanel toppanel = new JPanel(new FlowLayout(FlowLayout.LEFT,10,20));
-        toppanel.setBackground(Color.BLUE);
+        toppanel.setBackground(Color.WHITE);
         JLabel head = new JLabel("Hospital Management");
         head.setFont(new Font("Arial", Font.PLAIN, 18));
         toppanel.add(head);
-        GridBagConstraints gc = new GridBagConstraints();
+        setLocationRelativeTo(null);
 
-
+        // creates new panel to add buttons to
         JPanel p1 = new JPanel();
+        // defines layout of panel
         p1.setLayout(new GridBagLayout());
-        JLabel panelheader = new JLabel("Please enter patient data");
-        panelheader.setFont(new Font("Arial", Font.BOLD, 15));
-        gc.gridx = 0; gc.gridy = 0; gc.ipady = 30; gc.fill = GridBagConstraints.HORIZONTAL;
-        p1.add(panelheader, gc);
-        gc.gridy = 1; gc.ipady = 0; gc.anchor = GridBagConstraints.WEST; gc.fill = GridBagConstraints.NONE;
-        p1.add(new JLabel("Name: "),gc);
-        gc.gridy = 2;
-        p1.add(new JLabel("Surname: "),gc);
-        gc.gridy = 3;
-        p1.add(new JLabel("Birth date (dd.mm.yyyy): "),gc);
-        gc.gridy = 4;
-        p1.add(new JLabel("Home Address: "),gc);
-        gc.gridy = 5;
-        p1.add(new JLabel("Phone Number: "),gc);
-        gc.gridy = 6;
-        p1.add(new JLabel("Tribe: "),gc);
-        gc.gridy = 7;
-        p1.add(new JLabel("Alive / Dead: "),gc);
-        name = new JTextField();
-        surname = new JTextField();
-        homeaddress = new JTextField();
-        phonenumber = new JTextField();
-        tribe = new JTextField();
-        alivedead = new JTextField();
-        bd = new JFormattedTextField(new DefaultFormatterFactory(new DateFormatter(new SimpleDateFormat("dd/mm/yyyy"))));
-        gc.gridy = 1; gc.gridx=1; gc.ipadx = 90; gc.fill = GridBagConstraints.HORIZONTAL;
-        p1.add(name,gc);
-        gc.gridy = 2;
-        p1.add(surname,gc);
-        gc.gridy = 3;
-        p1.add(bd,gc);
-        gc.gridy = 4;
-        p1.add(homeaddress,gc);
-        gc.gridy = 5;
-        p1.add(phonenumber,gc);
-        gc.gridy = 6;
-        p1.add(tribe,gc);
-        gc.gridy = 7;
-        p1.add(alivedead,gc);
-        patregbutton = new JButton("Register Patient");
+
+        // Set button values
+        patregbutton = new JButton("Patient Registration");
+        patchangebutton = new JButton("Change Patient Information");
+        patfindbutton = new JButton("Find Patient");
+        patadmissionbutton = new JButton("Admit/Move/Discharge patient");
+        patdischargebutton = new JButton("Discharge Patient");
+
+        //defines what to do on button press
         patregbutton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                controller.checkPatientReg(name.getText(), surname.getText(), bd.getText(), homeaddress.getText(), phonenumber.getText(), tribe.getText(), alivedead.getText())
+                controller.patRegistrationPress();
             }
         });
-        gc.gridx=1; gc.gridy= 8;
-        p1.add(patregbutton,gc);
-
-        patsearchbutton = new JButton("Search");
-        patsearchbutton.addActionListener(new ActionListener() {
+        patchangebutton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //HomePageController.searchPatientReg(name.getText(), surname.getText(), brithdate.getText(), homeaddress.getText(), phonenumber.getText(), tribe.getText(), alivedead.getText())
+                controller.patChangePress();
             }
         });
-        gc.gridx=0;
-        p1.add(patsearchbutton,gc);
+        patfindbutton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                controller.patFindPress();
+            }
+        });
+        patadmissionbutton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                controller.patAdmitMovePress();
+            }
+        });
+        patdischargebutton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String uid = JOptionPane.showInputDialog("please enter UID of Patient");
+            }
+        });
 
-
+        // GridbagContraints defines location of components in panel
+        GridBagConstraints gc = new GridBagConstraints();
+        // x&y location, x directional size, fill all row, distance between components
+        gc.gridx=0; gc.gridy=0; gc.ipadx = 150 ;gc.fill = GridBagConstraints.HORIZONTAL; gc.insets = new Insets(5,5,5,5);
+        p1.add(patregbutton,gc);
+        gc.fill = GridBagConstraints.HORIZONTAL; gc.gridy=1;
+        p1.add(patchangebutton,gc);gc.weightx = 200;
+        gc.fill = GridBagConstraints.HORIZONTAL; gc.gridy=2;
+        p1.add(patfindbutton,gc);gc.weightx = 200;
+        gc.fill = GridBagConstraints.HORIZONTAL; gc.gridy=3;
+        p1.add(patadmissionbutton,gc);
 
         JPanel p2 = new JPanel();
+        staffregbutton = new JButton("Staff Registration");
+        staffchangebutton = new JButton("Change Staff Information");
+        stafffindbutton = new JButton("Find Staff Member");
+
+
+        staffregbutton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                controller.staffRegistrationPress();
+            }
+        });
+        staffchangebutton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                controller.staffChangePress();
+            }
+        });
+        stafffindbutton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                controller.findStaffPress();
+            }
+        });
+
+        p2.setLayout(new GridBagLayout());
+        // x&y location, x directional size, fill all row, distance between components
+        gc.gridx=0; gc.gridy=0; gc.ipadx = 150 ;gc.fill = GridBagConstraints.HORIZONTAL; gc.insets = new Insets(5,5,5,5);
+        p2.add(staffregbutton,gc);
+        gc.fill = GridBagConstraints.HORIZONTAL; gc.gridy=1;
+        p2.add(staffchangebutton,gc);gc.weightx = 200;
+        gc.fill = GridBagConstraints.HORIZONTAL; gc.gridy=2;
+        p2.add(stafffindbutton,gc);gc.weightx = 200;
 
         JPanel p3 = new JPanel();
-        JPanel p4 = new JPanel();
+        p3.setLayout(new GridBagLayout());
+
+        facilitySButton = new JButton("Facility Status");
+        gc.gridx=0; gc.gridy=0; gc.ipadx = 150 ;gc.fill = GridBagConstraints.HORIZONTAL; gc.insets = new Insets(5,5,5,5);
+        p3.add(facilitySButton,gc);
+
+        facilitySButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                controller.facilityStatusPress();
+            }
+        });
+
+        participationLButton = new JButton("Participation lists");
+        gc.fill = GridBagConstraints.HORIZONTAL; gc.gridy=1;
+        p3.add(participationLButton,gc);gc.weightx = 200;
+
+        participationLButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                controller.participationListsPress();
+            }
+        });
+
+        updateDButton = new JButton("Update database");
+        gc.fill = GridBagConstraints.HORIZONTAL; gc.gridy=2;
+        p3.add(updateDButton,gc);gc.weightx = 200;
+
+        updateDButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                controller.updateDatabasePress();
+            }
+        });
+
+
+
 
         JTabbedPane optionlist = new JTabbedPane();
-        optionlist.add(p1,"Patient Registration");
-        optionlist.add(p2,"Panel #2");
-        optionlist.add(p3,"Panel #3");
-        optionlist.add(p4,"Panel #4");
+        optionlist.add(p1,"Patient Management");
+        optionlist.add(p2,"Staff Management");
+        optionlist.add(p3,"Facility Management");
+
 
 
 

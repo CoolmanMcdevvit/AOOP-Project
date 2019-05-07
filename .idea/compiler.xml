@@ -6,11 +6,10 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="AOOP-Project" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="AOOP-Project" target="1.5" />
+      <module name="AOOP-Project" target="8" />
     </bytecodeTargetLevel>
   </component>
 </project>
