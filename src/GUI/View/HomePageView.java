@@ -12,7 +12,7 @@ import java.awt.event.ActionListener;
 import java.text.SimpleDateFormat;
 
 public class HomePageView extends JFrame{
-    private JButton patregbutton,patchangebutton , patfindbutton, patadmissionbutton;
+    private JButton patregbutton,patchangebutton , patfindbutton, patadmissionbutton, facilitySButton, participationLButton,updateDButton;
     private JButton staffregbutton, staffchangebutton, stafffindbutton;
     private HomePageController controller;
 
@@ -123,6 +123,41 @@ public class HomePageView extends JFrame{
         p2.add(stafffindbutton,gc);gc.weightx = 200;
 
         JPanel p3 = new JPanel();
+        p3.setLayout(new GridBagLayout());
+
+        facilitySButton = new JButton("Facility Status");
+        gc.gridx=0; gc.gridy=0; gc.ipadx = 150 ;gc.fill = GridBagConstraints.HORIZONTAL; gc.insets = new Insets(5,5,5,5);
+        p3.add(facilitySButton,gc);
+
+        facilitySButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                controller.facilityStatusPress();
+            }
+        });
+
+        participationLButton = new JButton("Participation lists");
+        gc.fill = GridBagConstraints.HORIZONTAL; gc.gridy=1;
+        p3.add(participationLButton,gc);gc.weightx = 200;
+
+        participationLButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                controller.participationListsPress();
+            }
+        });
+
+        updateDButton = new JButton("Update database");
+        gc.fill = GridBagConstraints.HORIZONTAL; gc.gridy=2;
+        p3.add(updateDButton,gc);gc.weightx = 200;
+
+        updateDButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                controller.updateDatabasePress();
+            }
+        });
+
 
 
 

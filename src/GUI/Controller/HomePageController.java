@@ -55,6 +55,23 @@ public class HomePageController{
             application.staffChange(view);
         }
     }
+
+    public void facilityStatusPress(){
+        if (session.getRole().equals("registration clerk")){
+            view.setVisible(false);
+            application.facilityStatus(view);
+        }
+    }
+
+    public void participationListsPress(){
+        if (session.getRole().equals("registration clerk")){
+            view.setVisible(false);
+            application.participationLists(view);
+        }
+    }
+    public void updateDatabasePress(){
+        application.updateDatabase();
+    }
 //    public void checkPatientReg(String n, String sn, String bd, String ha,String pn, String t, String ad) {
 //        homepage.patientRegModel(n,sn,bd,ha,pn,t,ad);
 //    }

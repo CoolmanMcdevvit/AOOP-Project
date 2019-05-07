@@ -3,7 +3,8 @@ package GUI.View;
 import GUI.Controller.ChangePatientController;
 import GUI.Controller.FindPatientController;
 import GUI.Controller.PatRegistrationController;
-import sun.java2d.windows.GDIRenderer;
+import Hospital.src.main.java.Hospital.Patient;
+
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -15,6 +16,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Vector;
 
 
@@ -30,10 +32,20 @@ public class FindPatientView extends JFrame {
     private JButton searchbutton, homebutton;
     private JFrame frame;
     private JTable resultstable;
+    private ButtonGroup radiobuttons;
 
     public FindPatientView(FindPatientController controller){
         this.controller = controller;
         initGUI();
+    }
+    public void initTable(String s,String search){
+
+        final String[] columnNames = {"ID","Name","Surname","Birth date","Address","Phone number","Alive","Tribe"};
+        String [][] data = controller.findPatient(s,search);
+        resultstable = new JTable();
+        //resultstable.setModel(new DefaultTableModel(data,columnNames));
+        resultspanel.add(resultstable);
+
     }
 
     private TableRowSorter<TableModel> rowSorter;
@@ -62,8 +74,45 @@ public class FindPatientView extends JFrame {
         searchtextfield.setBounds(160,30,320,30);
         panel.add(searchtextfield);
 
+        radiobuttons = new ButtonGroup();
+
+        namebutton = new JRadioButton("Name");
+        namebutton.setBounds(30,20,100,20);
+        namebutton.setActionCommand("Name");
+        radiobuttons.add(namebutton);
+        panel.add(namebutton);
+        namebutton.setSelected(true);
+
+        surnamebutton = new JRadioButton("Surname");
+        surnamebutton.setBounds(30,50,100,20);
+        surnamebutton.setActionCommand("Surname");
+        radiobuttons.add(surnamebutton);
+        panel.add(surnamebutton);
+
+        uidbutton = new JRadioButton("UID");
+        uidbutton.setBounds(30,80,100,20);
+        uidbutton.setActionCommand("UID");
+        radiobuttons.add(uidbutton);
+        panel.add(uidbutton);
+
+
+
+
+        resultspanel = new JScrollPane();
+        resultspanel.setLayout(null);
+        resultspanel.setBounds(5,150,525,400);
+        resultspanel.setBorder(BorderFactory.createLineBorder(Color.black));
+
+
+
         searchbutton = new JButton("Search");
         searchbutton.setBounds(160,70,160,30);
+        searchbutton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e){
+                controller.findPatient(radiobuttons.getSelection().getActionCommand(),searchtextfield.getText());
+            }
+        });
         panel.add(searchbutton);
 
         homebutton = new JButton("Home");
@@ -75,29 +124,6 @@ public class FindPatientView extends JFrame {
             }
         });
         panel.add(homebutton);
-
-        namebutton = new JRadioButton("Name");
-        namebutton.setBounds(30,25,80,20);
-        panel.add(namebutton);
-
-        surnamebutton = new JRadioButton("Surname");
-        surnamebutton.setBounds(30,55,80,20);
-        panel.add(surnamebutton);
-
-        uidbutton = new JRadioButton("UID");
-        uidbutton.setBounds(30,85,80,20);
-        panel.add(uidbutton);
-
-
-        resultspanel = new JScrollPane();
-        resultspanel.setLayout(null);
-        resultspanel.setBounds(5,150,525,400);
-        resultspanel.setBorder(BorderFactory.createLineBorder(Color.black));
-
-        resultstable = new JTable();
-        //resultstable.setModel(new DefaultTableModel(data,columnNames));
-        resultspanel.add(resultstable);
-
 
 
 
