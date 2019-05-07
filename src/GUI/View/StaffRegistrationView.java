@@ -28,7 +28,7 @@ public class StaffRegistrationView extends StaffInfoView {
         cleartext.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                controller.clear(getStaffTextFields());
+                controller.clear(getStaffTextFields(),3);
             }
         });
         panel.add(cleartext);

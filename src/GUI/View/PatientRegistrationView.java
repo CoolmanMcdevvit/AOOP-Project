@@ -37,7 +37,7 @@ public class PatientRegistrationView extends PatientInfoView {
         cleartext.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                controller.clear(getPatientTextFields());
+                controller.clear(getPatientTextFields(),8);
             }
         });
         panel.add(cleartext);

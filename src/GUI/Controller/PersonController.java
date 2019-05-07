@@ -28,8 +28,8 @@ public class PersonController {
         hview.setVisible(true);
     }
 
-    public void clear(JTextField[] fields) {
-        for (int i = 0; i < 9; i++) {
+    public void clear(JTextField[] fields, int a) {
+        for (int i = 0; i < a; i++) {
             fields[i].setText("");
         }
     }
