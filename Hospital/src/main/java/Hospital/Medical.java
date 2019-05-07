@@ -12,7 +12,6 @@ public class Medical extends Department {
 		return 50;
 	}
 
-
 	@Override
 	public boolean Beds() {
 		return true;

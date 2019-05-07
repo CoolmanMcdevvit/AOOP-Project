@@ -35,4 +35,8 @@ public class StaffMap {
 			return null;
 		}
 	}
+	
+	public void printStaff(){
+		System.out.println(hashmapStaff.values());
+	}
 }

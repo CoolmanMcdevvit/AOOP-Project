@@ -9,13 +9,18 @@ public class Patient extends Person {
 	private String address;
     private int phonenumber;
     private String birthday;
-    private boolean isAlive;
+    private String isAlive;
     private int patientID;
     private String tribe;
     private static int patientnumber=10000;
     private String department;
     private int bednumber;
+  
+
     
+	public String getAlivestatus() {
+		return isAlive;
+	}
     public String getDepartment() {
 		return department;
 	}
@@ -47,12 +52,8 @@ public class Patient extends Person {
 		setPhonenumber(phonenumber);
 		setBirthday(bDay, bMonth, bYear);
 		setTribe(tribe);
-		String ALIVE = isAlive;
-		if (ALIVE == "Yes") {
-			this.isAlive = true;
-		} else{
-			this.isAlive = false;
-		}
+		setAlivestatus(isAlive);
+		
 		setDepartment("None");
 		//setPatientID();
 		//this.patientID = getPatientID();
@@ -132,9 +133,10 @@ public class Patient extends Person {
 		this.tribe = tribe;	
 	}
 	
-	public void setAlivestatus(boolean isAlive) {
+	public void setAlivestatus(String isAlive) {
 		this.isAlive = isAlive;
 	}
+
 	
 	////////////////////////GETTERS FOR VARIABLES//////////////////////////////////////
 	
@@ -144,6 +146,16 @@ public class Patient extends Person {
 	
 	public String getBirthday() {
 		return birthday;
+	}
+	
+	public String getBirthDAY() {
+		return birthday.substring(0,2);
+	}
+	public String getBirthMONTH() {
+		return birthday.substring(3,5);
+	}
+	public String getBirthYEAR() {
+		return birthday.substring(6,10);
 	}
 	public String getAddress() {
 		return address;
@@ -165,7 +177,7 @@ public class Patient extends Person {
 	}
 	
 	public String getAlivestatusString() {
-		return Boolean.toString(isAlive);
+		return isAlive;
 	}
 	
 

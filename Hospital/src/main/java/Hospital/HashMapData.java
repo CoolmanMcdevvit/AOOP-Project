@@ -1,8 +1,10 @@
 package Hospital;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
@@ -20,10 +22,6 @@ public class HashMapData {
 		for (Patient patient: HashMapData.values()) {
 			if(p.firstname.isEmpty() || p.getBirthday() == null || p.getAddress()== null) {
 				System.out.println("Invalid inptus.... check again");
-				return;
-			}
-			if(patient.getFirstname().equals(p.firstname) && patient.getLastname().equals(p.lastname) && patient.getBirthday().equals(p.getBirthday())){
-				System.out.println("Patient with same firstname, lastname and birthday is already in the system:");
 				return;
 			}
 		}
@@ -67,8 +65,10 @@ public List<Patient> SearchPFirstName(String firstNameToCompare) {
 	    }
 		
 		if (patList.isEmpty()) {
-			System.out.println("There is no patient registered with that first name");
-			return null;
+			Patient Pa = new Patient();
+			Pa.setFirstname("Nobody_has_that_name");
+			patList.add(Pa);
+			return patList;
 		} else {
 			return patList;
 		}
@@ -121,7 +121,7 @@ public List<Patient> SearchPLastName(String lastNameToCompare) {
 		}
 	}
 	
-	public void admitPatient(String Dep, String ID) {
+	public void admitPatient(String Dep, String ID, String Bed) {
 		int id = Integer.valueOf(ID);
 		Patient P = SearchpID(id);
 		Department D = Department.parseDepartment(Dep);
@@ -136,10 +136,9 @@ public List<Patient> SearchPLastName(String lastNameToCompare) {
 				return;
 			}
 			//System.out.println("Enter the bed number you want to assing");
-			String i = "17";
-			if(isBedavailable(i, D.getName()) == true) {
+			if(isBedavailable(Bed, D.getName()) == true) {
 				P.setDepartment(D.getName());
-				P.setBednumber(i);
+				P.setBednumber(Bed);
 			}else return;
 			
 		}else if (D.Beds()== false) {
@@ -184,6 +183,44 @@ public List<Patient> SearchPLastName(String lastNameToCompare) {
 		P.setBednumber("0");
 		P.setDepartment("None");
 	}
+
+//	public List<Patient> getAllPatientsFromDepartment(String DepName) {
+//		Department D = Department.parseDepartment(DepName);
+//		List<Patient> patList = new ArrayList<Patient>();
+//		Iterator<Patient> iterator = HashMapData.values().iterator();
+//		while (iterator.hasNext()) {
+//	        Patient patient = iterator.next();
+//	        if ( patient.getDepartment().equals(D)) {
+//	        	patList.add(patient);
+//	        }
+//	    }
+//		
+//		return patList;
+//	}
 	
+	public ArrayList<String> getAllPatientsinDepartments(){
+
+		
+		String[] deps = {"Emergency","Medical", "Surgery"};
+		int t = 0;
+		for (String s: deps) {
+			Iterator<Patient> iterator = HashMapData.values().iterator();
+			int temp = 0;
+			while(iterator.hasNext()) {
+				Patient patient = iterator.next();
+				if(patient.getDepartment().equals(s)) {
+					temp = temp+1;
+				}
+			}
+			deps[t]=deps[t]+ " " + String.valueOf(temp);
+			t+=1;
+			
+		}
+		ArrayList<String> Gegg = new ArrayList<String>(Arrays.asList(deps));
+
+		return Gegg;
+		
+	}
+
 
 }

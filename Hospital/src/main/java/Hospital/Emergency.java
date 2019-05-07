@@ -19,7 +19,5 @@ public class Emergency extends Department{
 	public boolean Beds() {
 		return false;
 	}
-
-	
 	
 }

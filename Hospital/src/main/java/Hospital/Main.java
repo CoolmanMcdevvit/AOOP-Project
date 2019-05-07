@@ -1,5 +1,8 @@
 package Hospital;
 
+import java.awt.List;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -47,6 +50,15 @@ public class Main {
 				
 				hmd.printHMD();
 				
+				String test, test2, test3;
+				test = P.getBirthDAY();
+				test2 = P.getBirthMONTH();
+				test3 = P.getBirthYEAR();
+				System.out.println(" ");
+				System.out.println(test);
+				System.out.println(test2);
+				System.out.println(test3);
+				
 			} else if (i==2) {
 
 				
@@ -90,10 +102,17 @@ public class Main {
 				
 				String test = "Medical";
 				String id = "10001";
-				hmd.admitPatient(test, id);
+				String Bed = "17";
+				hmd.admitPatient(test, id, Bed);
+				String test2 = "Medical";
+				String id2 = "10002";
+				String Bed2 = "18";
 				hmd.printHMD();
-				hmd.DischargePatient(id);
+				hmd.admitPatient(test2, id2, Bed2);
 				hmd.printHMD();
+				ArrayList<String> prufa = hmd.getAllPatientsinDepartments();
+				System.out.print(prufa);
+				
 			}
 			else {
 				System.out.println("The number you chose is not valid please try again");

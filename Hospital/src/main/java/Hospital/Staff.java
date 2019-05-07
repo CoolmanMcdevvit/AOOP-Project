@@ -8,8 +8,6 @@ public class Staff extends Person{
 	private int phonenumber;
 	private String department;
 	
-	
-
 	private static int staffnumber = 0;
 	private static int phoneNumber = 55100000;
 	

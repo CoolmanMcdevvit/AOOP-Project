@@ -34,7 +34,7 @@ public class StepDefinition {
 	}
 
 	@Given("^a phonenumber (\\d+)$")
-	public void a_phonenumber(int phonenumber) {
+	public void a_phonenumber(String phonenumber) {
 	    P.setPhonenumber(phonenumber);
 	}
 

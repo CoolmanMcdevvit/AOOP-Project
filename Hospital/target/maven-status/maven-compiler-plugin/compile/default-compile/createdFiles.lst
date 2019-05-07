@@ -1,9 +1,10 @@
-Hospital/Search.class
-Hospital/Registration.class
-Hospital/PatientList.class
+Hospital/StaffMap.class
 Hospital/Main.class
-Hospital/Patient.class
 Hospital/Staff.class
+Hospital/Medical.class
+Hospital/Emergency.class
 Hospital/Person.class
 Hospital/Department.class
+Hospital/Patient.class
 Hospital/HashMapData.class
+Hospital/Surgery.class
