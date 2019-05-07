@@ -2,6 +2,7 @@ package Hospital.src.main.java.Hospital;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.*;
 
@@ -110,6 +111,19 @@ public class StaffMap {
 		System.out.print(hashmapStaff.values());
 	}
 
+	public boolean validJobRole(String JR) {
+		String Department = JR.toLowerCase();
+		String[] Deps = {"nurse", "doctor", "clerk","ict officer"};
+
+		for(String s : Deps) {
+			if(s==Department) {
+				return true;
+			}
+		}
+
+		return false;
+	}
+
 	public void closeData() {
 //		clear the database and populate again with the hashmaps
 		try{
@@ -126,12 +140,34 @@ public class StaffMap {
 						+"','"+ hashmapStaff.get(key).getEmail() +"','"+ hashmapStaff.get(key).getPhonenumber() + "','"+ hashmapStaff.get(key).getDepartment() +"')");
 				// need to update the database first, HashMapData.get(loop) to get the features.
 				key++;
-			};
+			}
 
+            con.close();
+		}
+		catch(Exception e) {
+			System.out.println(e);
+		}
+	}
+
+	public void initializeData() {
+//		HashMapData
+//		populates the hashmaps with data from the sql database
+		try{
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/Hospital_JAVA", "root", "sql");
+			Statement stmt = con.createStatement();
+			ResultSet rs = stmt.executeQuery("SELECT * FROM Staff");
+			while (rs.next())
+			{
+				Staff temp = new Staff();
+				temp.createStaff(rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5));
+				hashmapStaff.put(temp.getStaffID(), temp);
+			};
 			con.close();
 		}
 		catch(Exception e) {
 			System.out.println(e);
 		}
 	}
+
 }

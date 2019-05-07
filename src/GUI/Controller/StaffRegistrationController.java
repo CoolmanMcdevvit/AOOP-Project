@@ -17,6 +17,7 @@ public class StaffRegistrationController extends PersonController {
         this.model = mdl;
     }
 
+    // ensures there are no blanks in input from JTextfields and passes to model to update StaffMap
     public void check(JTextField[] f){
         if (checkForBlanks(f,4)) {
             model.regsisterInput(f);
