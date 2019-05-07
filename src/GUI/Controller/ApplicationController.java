@@ -4,6 +4,7 @@ import GUI.Model.Homepage;
 import GUI.Model.PatRegistration;
 import GUI.Model.Session;
 import GUI.View.*;
+import Hospital.src.main.java.Hospital.HashMapData;
 
 import javax.swing.*;
 
@@ -39,8 +40,8 @@ public class ApplicationController {
         homePagecontroller.display();
     }
 
-    public void registration(HomePageView hview){
-        patregistration = new PatRegistration();
+    public void registration(HomePageView hview, HashMapData hmd){
+        patregistration = new PatRegistration(hmd);
         patientregistrationcontroller = new PatRegistrationController(patregistration);
         PatientRegistrationView view = new PatientRegistrationView(patientregistrationcontroller);
         patientregistrationcontroller.setView(view,hview);
@@ -59,6 +60,13 @@ public class ApplicationController {
         FindPatientView view = new FindPatientView(findpatientcontroller);
         findpatientcontroller.setView(view,hview);
         findpatientcontroller.display();
+    }
+
+    public void admitMove(HomePageView hview){
+        admitmovecontroller = new AdmitMoveController();
+        AdmitMoveView view = new AdmitMoveView(admitmovecontroller);
+        admitmovecontroller.setView(view,hview);
+        admitmovecontroller.display();
     }
 
     public void staffRegistration(HomePageView hview){

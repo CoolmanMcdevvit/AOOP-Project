@@ -14,6 +14,8 @@ import java.text.SimpleDateFormat;
 public class HomePageView extends JFrame{
     private JButton patregbutton,patchangebutton , patfindbutton, patadmissionbutton, facilitySButton, participationLButton,updateDButton;
     private JButton staffregbutton, staffchangebutton, stafffindbutton;
+    private JButton patregbutton,patchangebutton , patfindbutton, patadmissionbutton;
+    private JButton staffregbutton, staffchangebutton, stafffindbutton, patdischargebutton;
     private HomePageController controller;
 
 
@@ -48,7 +50,8 @@ public class HomePageView extends JFrame{
         patregbutton = new JButton("Patient Registration");
         patchangebutton = new JButton("Change Patient Information");
         patfindbutton = new JButton("Find Patient");
-        patadmissionbutton = new JButton("Admit patient");
+        patadmissionbutton = new JButton("Admit/Move patient");
+        patdischargebutton = new JButton("Discharge Patient");
 
         //defines what to do on button press
         patregbutton.addActionListener(new ActionListener() {
@@ -72,7 +75,13 @@ public class HomePageView extends JFrame{
         patadmissionbutton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                controller.patAdmissionPress();
+                controller.patAdmitMovePress();
+            }
+        });
+        patdischargebutton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String uid = JOptionPane.showInputDialog("please enter UID of Patient");
             }
         });
 
