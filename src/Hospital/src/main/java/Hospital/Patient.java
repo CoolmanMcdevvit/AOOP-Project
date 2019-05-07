@@ -174,6 +174,20 @@ public class Patient extends Person {
 		this.phonenumber=phonenumber;
 		
 	}
+	public Patient setPatient(String firstname, String lastname, String address, int phonenumber, String birthday, String tribe, String isAlive, String bednumber) {
+		Patient p = new Patient();
+		this.setFirstname(firstname);
+		this.setLastname(lastname);
+		this.setAddress(address);
+		this.setPhonenumberB(phonenumber);
+		this.setBday(birthday);
+		this.tribe=tribe;
+		this.isAlive=isAlive;
+		this.setDepartment("None");
+		this.setPatientID();
+		this.setBednumber(bednumber);
+		return p;
+	}
 	
 	
 }
