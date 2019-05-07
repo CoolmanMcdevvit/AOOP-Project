@@ -82,6 +82,34 @@ public class ApplicationController {
         staffchangecontroller.display();
     }
 
+    public void facilityStatus(HomePageView hview){
+        facilitystatuscontroller = new FacilityStatusController();
+        FacilityStatusView view = new FacilityStatusView(facilitystatuscontroller);
+        facilitystatuscontroller.setView(view,hview);
+        facilitystatuscontroller.display();
+    }
+
+    public void participationLists(HomePageView hview){
+        participationlistscontroller = new ParticipationListsController();
+        ParticipationListsView view = new ParticipationListsView(participationlistscontroller);
+        participationlistscontroller.setView(view,hview);
+        participationlistscontroller.display();
+    }
+
+    public void updateDatabase(){
+        //Let's call function here
+        try{
+        JOptionPane.showMessageDialog(null,
+                "Database Updated",
+                "",
+                JOptionPane.WARNING_MESSAGE);}
+        catch (Exception e){JOptionPane.showMessageDialog(null,
+                "Unsuccessful Operation",
+                "",
+                JOptionPane.WARNING_MESSAGE);}
+
+    }
+
     public static void main(String[] args){
         ApplicationController app = new ApplicationController();
         app.login();

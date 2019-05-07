@@ -3,7 +3,8 @@ package GUI.View;
 import GUI.Controller.ChangePatientController;
 import GUI.Controller.FindPatientController;
 import GUI.Controller.PatRegistrationController;
-import sun.java2d.windows.GDIRenderer;
+import Hospital.src.main.java.Hospital.Patient;
+
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -15,6 +16,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Vector;
 
 
@@ -30,6 +32,7 @@ public class FindPatientView extends JFrame {
     private JButton searchbutton, homebutton;
     private JFrame frame;
     private JTable resultstable;
+    private ButtonGroup radiobuttons;
 
     public FindPatientView(FindPatientController controller){
         this.controller = controller;
@@ -51,19 +54,66 @@ public class FindPatientView extends JFrame {
         panel.setBorder(BorderFactory.createLineBorder(Color.black));
         setMinimumSize(new Dimension(550,600));
 
+        String [] columns = {"ID","Name","SUR","NN","DD","EE","DD","TT"};
+        Object[][] data={{"1","M","j","1222","asdads","123123","yes","jaimaican"},{"2","G","E","1222","asdads","123123","yes","jaimaican"},{"4","tTT","TTT","1222","asdads","123123","yes","jaimaican"}};
 
-
-//        searchlabel = new JLabel("Search");
-//        searchlabel.setBounds(270,10,250,40);
-//        searchlabel.setFont(new Font("Arial",Font.BOLD,30));
-//        panel.add(searchlabel);
 
         searchtextfield = new JTextField();
         searchtextfield.setBounds(160,30,320,30);
         panel.add(searchtextfield);
 
+        radiobuttons = new ButtonGroup();
+
+        namebutton = new JRadioButton("Name");
+        namebutton.setBounds(30,20,100,20);
+        namebutton.setActionCommand("Name");
+        radiobuttons.add(namebutton);
+        panel.add(namebutton);
+        namebutton.setSelected(true);
+
+        surnamebutton = new JRadioButton("Surname");
+        surnamebutton.setBounds(30,50,100,20);
+        surnamebutton.setActionCommand("Surname");
+        radiobuttons.add(surnamebutton);
+        panel.add(surnamebutton);
+
+        uidbutton = new JRadioButton("UID");
+        uidbutton.setBounds(30,80,100,20);
+        uidbutton.setActionCommand("UID");
+        radiobuttons.add(uidbutton);
+        panel.add(uidbutton);
+
+
+
+
+
+
+
+        resultstable = new JTable(data,columns);
+        resultstable.setBounds(30,180,400,350);
+
+        //resultspanel.setViewportView(resultstable);
+//        resultstable.setModel(new DefaultTableModel());
+//        DefaultTableModel model = (DefaultTableModel)resultstable.getModel();
+//        model.addColumn("Name");model.addColumn("Surname");
+
+
         searchbutton = new JButton("Search");
         searchbutton.setBounds(160,70,160,30);
+        searchbutton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e){
+                //controller.findPatient(radiobuttons.getSelection().getActionCommand(),searchtextfield.getText());
+//                int row = 0;
+//                for(int i=0;i<data.length;i++){
+//                    System.out.println("bum");
+//                    model.addRow(new Object[0]);
+//                    model.setValueAt(data[i][1],row,0);
+//                    model.setValueAt(data[i][2],row,1);
+//                    row++;
+//                }
+            }
+        });
         panel.add(searchbutton);
 
         homebutton = new JButton("Home");
@@ -76,36 +126,25 @@ public class FindPatientView extends JFrame {
         });
         panel.add(homebutton);
 
-        namebutton = new JRadioButton("Name");
-        namebutton.setBounds(30,25,80,20);
-        panel.add(namebutton);
 
-        surnamebutton = new JRadioButton("Surname");
-        surnamebutton.setBounds(30,55,80,20);
-        panel.add(surnamebutton);
-
-        uidbutton = new JRadioButton("UID");
-        uidbutton.setBounds(30,85,80,20);
-        panel.add(uidbutton);
-
-
-        resultspanel = new JScrollPane();
-        resultspanel.setLayout(null);
+        resultspanel = new JScrollPane(resultstable);
         resultspanel.setBounds(5,150,525,400);
-        resultspanel.setBorder(BorderFactory.createLineBorder(Color.black));
+//        resultspanel.setBorder(BorderFactory.createLineBorder(Color.black));
 
-        resultstable = new JTable();
-        //resultstable.setModel(new DefaultTableModel(data,columnNames));
-        resultspanel.add(resultstable);
 
+        add(resultspanel);
 
 
 
 
         add(panel);
-        add(resultspanel);
+
         pack();
         setLocationRelativeTo(null);
 
     }
+
+
 }
+
+

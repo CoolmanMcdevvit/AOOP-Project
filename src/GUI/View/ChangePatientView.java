@@ -2,7 +2,6 @@ package GUI.View;
 
 import GUI.Controller.ChangePatientController;
 import GUI.Controller.PatRegistrationController;
-import sun.java2d.windows.GDIRenderer;
 
 import javax.swing.*;
 import javax.swing.text.DateFormatter;
