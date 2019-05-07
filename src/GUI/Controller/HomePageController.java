@@ -43,7 +43,7 @@ public class HomePageController{
 
     public void patAdmitMovePress(){
         if (session.getRole().equals("registration clerk")) {
-            application.admitMove(view);
+            application.admitMove(view, model.patientdata);
         }
     }
 

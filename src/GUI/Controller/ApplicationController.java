@@ -23,6 +23,7 @@ public class ApplicationController {
     private ParticipationListsController participationlistscontroller;
     private PatChange patchange;
     private StaffChange staffchange;
+    private AdmitMove admitmove;
 
 
 
@@ -63,8 +64,9 @@ public class ApplicationController {
         findpatientcontroller.display();
     }
 
-    public void admitMove(HomePageView hview){
-        admitmovecontroller = new AdmitMoveController();
+    public void admitMove(HomePageView hview, HashMapData hmd){
+        admitmove = new AdmitMove(hmd);
+        admitmovecontroller = new AdmitMoveController(admitmove);
         AdmitMoveView view = new AdmitMoveView(admitmovecontroller);
         admitmovecontroller.setView(view,hview);
         admitmovecontroller.display();

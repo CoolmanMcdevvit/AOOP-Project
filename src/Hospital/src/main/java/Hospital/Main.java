@@ -88,7 +88,7 @@ public class Main {
 				
 				String test = "Medical";
 				String id = "10001";
-				hmd.admitPatient(test, id);
+//				hmd.admitPatient(test, id);
 				hmd.printHMD();
 				hmd.DischargePatient(id);
 				hmd.printHMD();

@@ -30,6 +30,15 @@ public class HashMapData {
         return hashmapdata.containsKey(ID);
 	}
 
+	public boolean IsStringIDValid(String ID){
+		try{
+			return hashmapdata.containsKey(Integer.parseInt(ID));
+		}
+		catch(Exception e){
+			return false;
+		}
+	}
+
 
 
 	public Patient SearchpID(int ID) {
@@ -112,12 +121,12 @@ public List<Patient> SearchPLastName(String lastNameToCompare) {
 		}
 	}
 
-	public void admitPatient(String Dep, String ID) {
+	public void admitPatient(String Dep, String ID, String bed) {
 		int id = Integer.valueOf(ID);
 		Patient P = SearchpID(id);
 		Department D = Department.parseDepartment(Dep);
 		if(D==null) { // if the String does not match a department name. Return
-			System.out.println("No department with that name");
+			System.out.println("No department with that name") ;
 			return;
 		}
 

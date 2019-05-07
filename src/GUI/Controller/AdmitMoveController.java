@@ -29,11 +29,15 @@ public class AdmitMoveController{
         hview.setVisible(true);
     }
 
-    public void admit(JTextField id,JTextField dep,JTextField bed){
+    public void admit(String id,String dep,String bed){
         if(!id.equals("") && !dep.equals("") && !bed.equals("")){
             model.admitPatient(id,dep,bed);
         }
     }
 
-    public void move(JTextField id,JTextField dep,JTextField bed){}
+    public void move(String id,String dep,String bed){
+        if(!id.equals("") && !dep.equals("") && !bed.equals("")){
+            model.movePatient(id,dep,bed);
+        }
+    }
 }

@@ -74,7 +74,7 @@ public class AdmitMoveView extends JFrame{
         admit.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                controller.admit(id,department,bed);
+                controller.admit(id.getText(),department.getText(),bed.getText());
             }
         });
         panel.add(admit);
@@ -84,7 +84,7 @@ public class AdmitMoveView extends JFrame{
         move.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                controller.move(id,department,bed);
+                controller.move(id.getText(),department.getText(),bed.getText());
             }
         });
         panel.add(move);
