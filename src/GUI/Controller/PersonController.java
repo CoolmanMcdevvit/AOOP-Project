@@ -28,11 +28,11 @@ public class PersonController {
         hview.setVisible(true);
     }
 
-//    public void clear(JTextField[] fields) {
-//        for (int i = 0; i < 9; i++) {
-//            fields[i].setText("");
-//        }
-//    }
+    public void clear(JTextField[] fields, int a) {
+        for (int i = 0; i <= a; i++) {
+            fields[i].setText("");
+        }
+    }
 
     public boolean checkBirthday(JTextField[] f) {
         DateFormat format = new SimpleDateFormat("dd.MM.yyyy");

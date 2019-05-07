@@ -18,15 +18,13 @@ public class AdmitMove {
 
     public void admitPatient(String id, String dep, String bed){
         if(hmd.IsStringIDValid(id)){
-            System.out.println("good");
             hmd.admitPatient(dep, id,bed);
         }
     }
 
     public void movePatient(String id, String dep, String bed){
         if(hmd.IsStringIDValid(id)){
-            hmd.DischargePatient(id);
-            hmd.admitPatient(dep,id,bed);
+            hmd.admitPatient(dep, id,bed);
         }
     }
 

@@ -18,7 +18,7 @@ public class StaffRegistrationController extends PersonController {
     }
 
     public void check(JTextField[] f){
-        if (checkForBlanks(f,3)) {
+        if (checkForBlanks(f,4)) {
             model.regsisterInput(f);
         }
     }
