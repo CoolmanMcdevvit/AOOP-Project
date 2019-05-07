@@ -20,6 +20,7 @@ public class Homepage{
     }
     public void populate(){
         patientdata.initializeData();
+        staffdata.initializeData();
     }
 
 }
