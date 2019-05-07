@@ -49,7 +49,7 @@ public class HomePageController{
 
     public void staffRegistrationPress(){
         if (session.getRole().equals("registration clerk")) {
-            application.staffRegistration(view);
+            application.staffRegistration(view, model.staffdata);
         }
     }
 

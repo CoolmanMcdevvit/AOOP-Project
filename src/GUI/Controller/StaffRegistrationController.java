@@ -1,5 +1,6 @@
 package GUI.Controller;
 
+import GUI.Model.StaffRegistration;
 import GUI.View.HomePageView;
 import GUI.View.StaffRegistrationView;
 
@@ -9,7 +10,16 @@ public class StaffRegistrationController extends PersonController {
 
     private StaffRegistrationView view;
     private HomePageView hview;
+    private StaffRegistration model;
 
-    public void check(JTextField[] fields){
+
+    StaffRegistrationController(StaffRegistration mdl){
+        this.model = mdl;
+    }
+
+    public void check(JTextField[] f){
+        if (checkForBlanks(f,3)) {
+            model.regsisterInput(f);
+        }
     }
 }

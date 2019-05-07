@@ -21,6 +21,7 @@ public class StaffRegistrationView extends StaffInfoView {
 
     public void initGUI(){
         panel = getPanel();
+        setTitle("Staff Registration");
 
 
         clicktoregister = new JButton("Register");
@@ -28,7 +29,7 @@ public class StaffRegistrationView extends StaffInfoView {
         clicktoregister.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-               controller.check(getTextFields());
+               controller.check(getStaffTextFields());
             }
         });
         panel.add(clicktoregister);

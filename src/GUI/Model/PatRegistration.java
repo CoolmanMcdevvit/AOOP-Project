@@ -9,7 +9,7 @@ import java.util.HashMap;
 
 public class PatRegistration {
 
-    public HashMapData data;
+    private HashMapData data;
 
     public PatRegistration(HashMapData patientdata){
         this.data = patientdata;

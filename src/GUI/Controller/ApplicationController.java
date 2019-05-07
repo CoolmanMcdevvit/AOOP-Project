@@ -3,8 +3,10 @@ package GUI.Controller;
 import GUI.Model.Homepage;
 import GUI.Model.PatRegistration;
 import GUI.Model.Session;
+import GUI.Model.StaffRegistration;
 import GUI.View.*;
 import Hospital.src.main.java.Hospital.HashMapData;
+import Hospital.src.main.java.Hospital.StaffMap;
 
 import javax.swing.*;
 
@@ -19,6 +21,7 @@ public class ApplicationController {
     private StaffChangeController staffchangecontroller;
     private PatRegistration patregistration;
     private AdmitMoveController admitmovecontroller;
+    private StaffRegistration staffregistration;
 
 
 
@@ -63,8 +66,9 @@ public class ApplicationController {
         admitmovecontroller.display();
     }
 
-    public void staffRegistration(HomePageView hview){
-        staffregistrationcontroller = new StaffRegistrationController();
+    public void staffRegistration(HomePageView hview, StaffMap sm){
+        staffregistration = new StaffRegistration(sm);
+        staffregistrationcontroller = new StaffRegistrationController(staffregistration);
         StaffRegistrationView view = new StaffRegistrationView(staffregistrationcontroller);
         staffregistrationcontroller.setView(view, hview);
         staffregistrationcontroller.display();

@@ -19,7 +19,7 @@ public class ChangePatientView extends PatientInfoView {
     private JLabel toplabel;
     private JButton clicktomodify, home;
     private JPanel panel;
-    private ChangePatientView v;
+    private ChangePatientView view;
 
     public ChangePatientView(ChangePatientController controller){
         super("Registration Form", controller);
@@ -37,7 +37,7 @@ public class ChangePatientView extends PatientInfoView {
         clicktomodify.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                controller.check(getTextFields());
+                //controller.check(getTextFields());
             }
         });
 

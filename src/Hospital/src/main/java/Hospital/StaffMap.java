@@ -31,4 +31,7 @@ public class StaffMap {
 			return null;
 		}
 	}
+	public void printHMD() {
+		System.out.print(hashmapStaff.values());
+	}
 }

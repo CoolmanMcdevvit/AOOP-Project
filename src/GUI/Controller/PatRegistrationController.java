@@ -7,6 +7,7 @@ import GUI.View.PatientRegistrationView;
 
 import javax.swing.*;
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
 public class PatRegistrationController extends PersonController{
@@ -19,10 +20,21 @@ public class PatRegistrationController extends PersonController{
         this.model = mdl;
     }
 
+    public boolean checkBirthday(JTextField[] f) {
+        DateFormat format = new SimpleDateFormat("dd.MM.yyyy");
+        format.setLenient(false);
+        String date = f[2].getText() +"." + f[3].getText() + "." + f[4].getText();
+        try {
+            format.parse(date);
+            return true;
+        } catch (ParseException e) {
+            return false;
+        }
+    }
+
 
     public void check(JTextField[] f) {
-        if (checkBirthday(f) && checkForBlanks(f) && f[6].getText().length()==8 && (f[8].getText().toLowerCase().equals("yes") || f[8].getText().toLowerCase().equals("no"))) {
-            System.out.print(model);
+        if (checkBirthday(f) && checkForBlanks(f,8) && f[6].getText().length()==8 && (f[8].getText().toLowerCase().equals("yes") || f[8].getText().toLowerCase().equals("no"))) {
             model.registerPatient(f);
         }
     }
