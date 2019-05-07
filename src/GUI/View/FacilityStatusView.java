@@ -13,9 +13,8 @@ import java.text.SimpleDateFormat;
 
 public class FacilityStatusView extends JFrame{
 
-    private JLabel admittednumberlabel,departmentslabel,inpatientlabel,outpatientlabel,emergencylabel;
+    private JLabel admittednumberlabel,departmentslabel,inpatientlabel,outpatientlabel,emergencylabel,inpatientnumber,outpatientnumber,emergencynumber;
     private JPanel panel;
-    private JTextField inpatientnumber,outpatientnumber,emergencynumber;
     private FacilityStatusController controller;
     private JButton homebutton;
 
@@ -64,22 +63,17 @@ public class FacilityStatusView extends JFrame{
 
 
 
-        inpatientnumber = new JTextField();
+        inpatientnumber = new JLabel(String.valueOf(controller.fillWithNumbers("surgery")));
         inpatientnumber.setBounds(200, 80, 180, 30);
         panel.add(inpatientnumber);
 
-        outpatientnumber = new JTextField();
+        outpatientnumber = new JLabel(String.valueOf(controller.fillWithNumbers("medical")));
         outpatientnumber.setBounds(200, 140, 180, 30);
         panel.add(outpatientnumber);
 
-        emergencynumber = new JTextField();
+        emergencynumber = new JLabel(String.valueOf(controller.fillWithNumbers("emergency")));
         emergencynumber.setBounds(200, 200, 180, 30);
         panel.add(emergencynumber);
-
-
-        inpatientnumber.setText(String.valueOf(controller.fillWithNumbers("Surgery")));
-        outpatientnumber.setText(String.valueOf(controller.fillWithNumbers("Medical")));
-        emergencynumber.setText(String.valueOf(controller.fillWithNumbers("Emergency")));
 
         homebutton = new JButton("Home");
         homebutton.setBounds(115,250,220,35);

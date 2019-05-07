@@ -25,7 +25,6 @@ public class FacilityStatusController {
 
     }
     public int fillWithNumbers(String s){
-
         HashMapData hm = new HashMapData();
         return hm.OccupiedBeds(s);
 
