@@ -14,8 +14,7 @@ import java.text.SimpleDateFormat;
 public class HomePageView extends JFrame{
     private JButton patregbutton,patchangebutton , patfindbutton, patadmissionbutton, facilitySButton, participationLButton,updateDButton;
     private JButton staffregbutton, staffchangebutton, stafffindbutton;
-    private JButton patregbutton,patchangebutton , patfindbutton, patadmissionbutton;
-    private JButton staffregbutton, staffchangebutton, stafffindbutton, patdischargebutton;
+    private JButton patdischargebutton;
     private HomePageController controller;
 
 

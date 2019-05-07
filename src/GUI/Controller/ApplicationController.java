@@ -22,6 +22,9 @@ public class ApplicationController {
     private PatRegistration patregistration;
     private AdmitMoveController admitmovecontroller;
     private StaffRegistration staffregistration;
+    private FacilityStatusController facilitystatuscontroller;
+    private ParticipationListsController participationlistscontroller;
+
 
 
 
