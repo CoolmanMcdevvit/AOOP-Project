@@ -13,46 +13,49 @@ import javax.swing.table.TableModel;
 import java.util.List;
 
 
-public class FindStaffController extends FindController{
+public class FindStaffController extends FindController {
 
     private FindStaffModel model;
-    private Object [][] data;
+    private Object[][] data;
     private TableModel table;
 
+    //defines FindStaffModel as private variable of class
     public FindStaffController(FindStaffModel mdl) {
         this.model = mdl;
     }
 
-    public TableModel findStaff(String selection, String search){
-        String [] columns = {"Name","Surname","ID","E-Mail","Role"};
 
-        try{
+    public TableModel findStaff(String selection, String search) {
+        String[] columns = {"Name", "Surname", "ID", "E-Mail", "Role"};
 
-            if(selection=="Name"){
+        try {
+            // sends input to model depending on searchbutton selected
+            if (selection == "Name") {
                 data = model.nameSearch(search);
             }
-            if(selection=="Surname"){
+            if (selection == "Surname") {
                 data = model.surnameSearch(search);
             }
-            if(selection=="UID"){
-                try{
-
+            if (selection == "UID") {
+                try {
+                    //attempts to parse integer returns errorstatement on fail
                     data = model.idSearch(Integer.parseInt(search));
                 }
-                catch (Exception e){
+                //catch statement shows pop-up pane with invalid value message
+                catch (Exception e) {
                     JOptionPane.showMessageDialog(null,
                             "Invalid value",
                             "",
                             JOptionPane.WARNING_MESSAGE);
                 }
             }
-
-
-
-            table = new DefaultTableModel(data,columns);
-            return table;}
-        catch (Exception e){return table;}
+            //sets table value as retrieved data and the string array definied at start of method
+            table = new DefaultTableModel(data, columns);
+            return table;
+        }
+        //on error returns empty table
+        catch (Exception e) {
+            return table;
+        }
     }
-
-
 }

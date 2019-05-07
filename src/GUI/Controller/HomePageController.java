@@ -13,6 +13,7 @@ public class HomePageController{
     private ApplicationController application;
     private Homepage model;
 
+    // sets session, application and model as private variables of HomePageController class
     public HomePageController(Session s){
         this.session = s;
         this.application = new ApplicationController();
@@ -20,9 +21,11 @@ public class HomePageController{
         model.populate();
     }
 
+    // all methods below check if user has correct role, sets HomePageView as not visible and then calls the Application Controller
     public void patRegistrationPress(){
         if(session.getRole().equals("registration clerk")){
             view.setVisible(false);
+            //model.patientdata in these functions refers to the Patient Hashmap
             application.registration(view,model.patientdata);
         }
     }
@@ -50,6 +53,7 @@ public class HomePageController{
 
     public void staffRegistrationPress(){
         if (session.getRole().equals("registration clerk")) {
+            //model.staffdata in these functions refers to the Staff Hashmap
             application.staffRegistration(view, model.staffdata);
         }
     }

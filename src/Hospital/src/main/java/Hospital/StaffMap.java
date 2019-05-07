@@ -110,6 +110,19 @@ public class StaffMap {
 		System.out.print(hashmapStaff.values());
 	}
 
+	public boolean validJobRole(String JR) {
+		String Department = JR.toLowerCase();
+		String[] Deps = {"nurse", "doctor", "clerk","ict officer"};
+
+		for(String s : Deps) {
+			if(s==Department) {
+				return true;
+			}
+		}
+
+		return false;
+	}
+
 	public void closeData() {
 //		clear the database and populate again with the hashmaps
 		try{
@@ -126,9 +139,9 @@ public class StaffMap {
 						+"','"+ hashmapStaff.get(key).getEmail() +"','"+ hashmapStaff.get(key).getPhonenumber() + "','"+ hashmapStaff.get(key).getDepartment() +"')");
 				// need to update the database first, HashMapData.get(loop) to get the features.
 				key++;
-			};
+			}
 
-			con.close();
+            con.close();
 		}
 		catch(Exception e) {
 			System.out.println(e);
