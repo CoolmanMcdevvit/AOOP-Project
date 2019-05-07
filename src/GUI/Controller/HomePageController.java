@@ -62,7 +62,7 @@ public class HomePageController{
     public void facilityStatusPress(){
         if (session.getRole().equals("registration clerk")){
             view.setVisible(false);
-            application.facilityStatus(view);
+            application.facilityStatus(view,model.patientdata);
         }
     }
 

@@ -63,15 +63,15 @@ public class FacilityStatusView extends JFrame{
 
 
 
-        inpatientnumber = new JLabel(String.valueOf(controller.fillWithNumbers("surgery")));
+        inpatientnumber = new JLabel(String.valueOf(controller.getNumbers("Surgery")));
         inpatientnumber.setBounds(200, 80, 180, 30);
         panel.add(inpatientnumber);
 
-        outpatientnumber = new JLabel(String.valueOf(controller.fillWithNumbers("medical")));
+        outpatientnumber = new JLabel(String.valueOf(controller.getNumbers("Medical")));
         outpatientnumber.setBounds(200, 140, 180, 30);
         panel.add(outpatientnumber);
 
-        emergencynumber = new JLabel(String.valueOf(controller.fillWithNumbers("emergency")));
+        emergencynumber = new JLabel(String.valueOf(controller.getNumbers("Emergency")));
         emergencynumber.setBounds(200, 200, 180, 30);
         panel.add(emergencynumber);
 

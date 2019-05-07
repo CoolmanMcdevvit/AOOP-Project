@@ -19,13 +19,27 @@ public class PersonInfoView extends JFrame{
     private JButton cleartext, home;
     private PersonController controller;
 
+    // superclass for basic information common to staff and patients, person controller used as superclass in controller package
     public PersonInfoView(String toplabelinput, PersonController controller){
         this.controller = controller;
         this.panel = setDefaults();
         addpersonLabels(panel, toplabelinput);
         setPersonTextfields(panel);
     }
+    // setting default size etc. common to all subclasses
+    public JPanel setDefaults(){
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        panel = new JPanel();
+        panel.setLayout(null);
+        panel.setSize(900, 650);
+        setLayout(null);
+        setBackground(Color.WHITE);
+        setSize(970, 700);
+        setMinimumSize(new Dimension(550, 600));
+        return panel;
+    }
 
+    // setting labels common to staff and patients
     public void addpersonLabels(JPanel panel, String headlabel){
         toplabel = new JLabel(headlabel);
         toplabel.setFont(new Font("Arial", Font.BOLD, 15));
@@ -42,6 +56,7 @@ public class PersonInfoView extends JFrame{
 
     }
 
+    //adding common textfields
     public void setPersonTextfields(JPanel panel) {
         name = new JTextField();
         name.setBounds(200, 80, 180, 30);
@@ -52,6 +67,7 @@ public class PersonInfoView extends JFrame{
         panel.add(surname);
     }
 
+    //setting common buttons
     public void buttonAdder(JPanel panel, JTextField[] fields){
         cleartext = new JButton("Clear Text");
         cleartext.setBounds(200, 500, 138, 30);
@@ -75,23 +91,13 @@ public class PersonInfoView extends JFrame{
         panel.add(home);
     }
 
-    public JPanel setDefaults(){
-        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-        panel = new JPanel();
-        panel.setLayout(null);
-        panel.setSize(900, 650);
-        setLayout(null);
-        setBackground(Color.WHITE);
-        setSize(970, 700);
-        setMinimumSize(new Dimension(550, 600));
-        return panel;
-    }
 
-
+    //getter so subclasses are able to edit same panel that buttons, labelts etc are held on
     public JPanel getPanel(){
         return panel;
     }
 
+    //returns JTextfields for easier information retrieval
     public JTextField[] getTextFields(){
         JTextField[] fields = new JTextField[2];
         fields[0] = name;

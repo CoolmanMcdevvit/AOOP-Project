@@ -30,6 +30,7 @@ public class ApplicationController {
     private AdmitMove admitmove;
     private FindStaffModel findstaffmodel;
     private FindStaffController findstaffcontroller;
+    private FacilityStatusModel facilitystatusmodel;
 
 
 
@@ -97,8 +98,9 @@ public class ApplicationController {
         staffchangecontroller.displayOptionPane(view);
     }
 
-    public void facilityStatus(HomePageView hview){
-        facilitystatuscontroller = new FacilityStatusController();
+    public void facilityStatus(HomePageView hview, HashMapData hmd){
+        facilitystatusmodel = new FacilityStatusModel(hmd);
+        facilitystatuscontroller = new FacilityStatusController(facilitystatusmodel);
         FacilityStatusView view = new FacilityStatusView(facilitystatuscontroller);
         facilitystatuscontroller.setView(view,hview);
         facilitystatuscontroller.display();

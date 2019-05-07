@@ -218,7 +218,9 @@ public class HashMapData {
 
 		Iterator<Patient> iterator = hashmapdata.values().iterator();
 		while (iterator.hasNext()) {
+
 	        Patient patient = iterator.next();
+			System.out.println(patient.getDepartment());
 	        if (patient.getDepartment().contentEquals(s)) {
 	        	av = av +1;
 	        }
