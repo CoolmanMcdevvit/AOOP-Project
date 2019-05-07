@@ -13,7 +13,7 @@ public class AdmitMoveView extends JFrame{
     private JLabel toplabel, idlabel, departmentlabel, bedlabel;
     private JPanel panel;
     private JTextField id, department, bed;
-    private JButton home, admit, move;
+    private JButton home, admit, move, discharge;
 
     public AdmitMoveView(AdmitMoveController controller){
         this.controller = controller;
@@ -88,6 +88,17 @@ public class AdmitMoveView extends JFrame{
             }
         });
         panel.add(move);
+
+        discharge = new JButton("Discharge");
+        discharge.setBounds(350, 300, 420, 30);
+        discharge.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e){
+                controller.dischargePatient(id.getText());
+            }
+        });
+        panel.add(discharge);
+
 
         add(panel);
         pack();

@@ -28,6 +28,12 @@ public class AdmitMove {
         }
     }
 
+    public void dischargePatient(String id){
+        if(hmd.IsStringIDValid(id)){
+            hmd.DischargePatient(id);
+        }
+    }
+
 }
 
 

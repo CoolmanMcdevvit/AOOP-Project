@@ -41,4 +41,10 @@ public class AdmitMoveController{
             model.movePatient(id,dep,bed);
         }
     }
+
+    public void dischargePatient(String id){
+        if(!id.equals(""){
+            model.dischargePatient(id);
+        }
+    }
 }
