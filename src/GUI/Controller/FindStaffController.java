@@ -4,7 +4,7 @@ import GUI.Model.FindPatientModel;
 import GUI.Model.FindStaffModel;
 import GUI.View.FindView;
 import GUI.View.HomePageView;
-import Hospital.src.main.java.Hospital.HashMapData;
+
 import Hospital.src.main.java.Hospital.Patient;
 
 import javax.swing.*;

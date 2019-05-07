@@ -13,7 +13,7 @@ import java.util.Map;
 
 
 public class HashMapData {
-	
+
 	public  HashMap<Integer, Patient> hashmapdata;
 	public HashMap<Integer, Staff> hashmapStaff;
 
@@ -231,8 +231,8 @@ public class HashMapData {
 	    }
 		return av;
 	}
-	
-	
+
+
 	public void DischargePatient(String ID) {
 		int id = Integer.valueOf(ID);
 		Patient P = SearchpID(id);
@@ -261,6 +261,31 @@ public class HashMapData {
 			System.out.println(e);
 		}
 	}
-	
+	public void closeData() {
+//		clear the database and populate again with the hashmaps
+		try{
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/Hospital_JAVA", "root", "sql");
+			Statement stmt = con.createStatement();
+
+
+			stmt.executeUpdate("DELETE FROM Patient");
+			int key = 10001;
+			while (hashmapdata.containsKey(key)) {
+				stmt.executeUpdate("INSERT INTO Patient (Pati_Name, Pati_Surname, Pati_Bdate, Pati_Address, Pati_Phone,Pati_Tribe, Pati_Dept, Pati_ID)"
+						+ "VALUES('" + hashmapdata.get(key).getFirstname() +"','"+ hashmapdata.get(key).getLastname()
+						+"','"+ hashmapdata.get(key).getBirthday() + "','" + hashmapdata.get(key).getAddress()
+						+"','"+ hashmapdata.get(key).getPhonenumberString() +"','"+ hashmapdata.get(key).getTribe() + "','"+ hashmapdata.get(key).getDepartment() + "','"+ hashmapdata.get(key).getPatientID()+ "')");
+				// need to update the database first, hashmapdata.get(loop) to get the features.
+				key++;
+			};
+			con.close();
+		}
+		catch(Exception e) {
+			System.out.println(e);
+		}
+	}
+
+
 
 }

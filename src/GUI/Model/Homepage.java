@@ -22,5 +22,9 @@ public class Homepage{
         patientdata.initializeData();
         staffdata.initializeData();
     }
+    public void update(){
+        patientdata.closeData();
+        staffdata.closeData();
+    }
 
 }
