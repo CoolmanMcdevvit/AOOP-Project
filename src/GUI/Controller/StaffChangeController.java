@@ -20,9 +20,5 @@ public class StaffChangeController extends PersonController {
         view.setVisible(true);}
 
 
-    public void setView(StaffChangeView view, HomePageView hview){
-        this.view = view;
-        this.hview = hview;
-    }
 
 }

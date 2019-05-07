@@ -34,6 +34,17 @@ public class PersonController {
         }
     }
 
+    public boolean checkBirthday(JTextField[] f) {
+        DateFormat format = new SimpleDateFormat("dd.MM.yyyy");
+        format.setLenient(false);
+        String date = f[2].getText() +"." + f[3].getText() + "." + f[4].getText();
+        try {
+            format.parse(date);
+            return true;
+        } catch (ParseException e) {
+            return false;
+        }
+    }
 
 
    public boolean checkForBlanks(JTextField[] fields, int a){

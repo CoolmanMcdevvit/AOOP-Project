@@ -1,9 +1,6 @@
 package GUI.Controller;
 
-import GUI.Model.Homepage;
-import GUI.Model.PatRegistration;
-import GUI.Model.Session;
-import GUI.Model.StaffRegistration;
+import GUI.Model.*;
 import GUI.View.*;
 import Hospital.src.main.java.Hospital.HashMapData;
 import Hospital.src.main.java.Hospital.StaffMap;
@@ -24,6 +21,7 @@ public class ApplicationController {
     private StaffRegistration staffregistration;
     private FacilityStatusController facilitystatuscontroller;
     private ParticipationListsController participationlistscontroller;
+    private PatChange patchange;
 
 
 
@@ -48,11 +46,13 @@ public class ApplicationController {
         patientregistrationcontroller.display();
     }
 
-    public void changePatient(HomePageView hview){
-        changepatientcontroller = new ChangePatientController();
+    public void changePatient(HomePageView hview, HashMapData hmd){
+        patchange = new PatChange(hmd);
+        changepatientcontroller = new ChangePatientController(patchange);
         ChangePatientView view = new ChangePatientView(changepatientcontroller);
         changepatientcontroller.setView(view,hview);
         changepatientcontroller.display();
+        changepatientcontroller.displayOptionPane(view);
     }
 
     public void findPatient(HomePageView hview){

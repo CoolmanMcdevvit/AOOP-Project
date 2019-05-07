@@ -48,7 +48,7 @@ public class PatientInfoView extends PersonInfoView{
         panel.add(alivelabel);
     }
 
-    public void addTextFields(JPanel panel){
+    private void addTextFields(JPanel panel){
         bdd = new JFormattedTextField(new SimpleDateFormat("dd"));
         bdd.setBounds(200, 200, 60, 30);
         panel.add(bdd);
@@ -77,6 +77,21 @@ public class PatientInfoView extends PersonInfoView{
         field8 = new JTextField();
         field8.setBounds(200, 440, 180, 30);
         panel.add(field8);
+    }
+
+    public JTextField[] getPatientTextFields(){
+        JTextField[] fields = new JTextField[9];
+        JTextField[] originalfields = getTextFields();
+        fields[0] = originalfields[0];
+        fields[1]= originalfields[1];
+        fields[2] = bdd;
+        fields[3] = bdm;
+        fields[4] = bdy;
+        fields[5] = homeaddress;
+        fields[6] = phonenumber;
+        fields[7] = field7;
+        fields[8] = field8;
+        return fields;
     }
 
     }

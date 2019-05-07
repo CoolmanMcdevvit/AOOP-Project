@@ -20,17 +20,6 @@ public class PatRegistrationController extends PersonController{
         this.model = mdl;
     }
 
-    public boolean checkBirthday(JTextField[] f) {
-        DateFormat format = new SimpleDateFormat("dd.MM.yyyy");
-        format.setLenient(false);
-        String date = f[2].getText() +"." + f[3].getText() + "." + f[4].getText();
-        try {
-            format.parse(date);
-            return true;
-        } catch (ParseException e) {
-            return false;
-        }
-    }
 
 
     public void check(JTextField[] f) {

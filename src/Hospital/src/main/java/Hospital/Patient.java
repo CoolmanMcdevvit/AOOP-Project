@@ -9,7 +9,7 @@ public class Patient extends Person {
 	private String address;
     private int phonenumber;
     private String birthday;
-    private boolean isAlive;
+    private String isAlive;
     private int patientID;
     private String tribe;
     private static int patientnumber=10000;
@@ -32,7 +32,17 @@ public class Patient extends Person {
 		this.bednumber = Integer.valueOf(bednumber);
 	}
 
-	Scanner input = new Scanner(System.in); 
+	Scanner input = new Scanner(System.in);
+
+	public String getBirthDay() {
+		return birthday.substring(0,2);
+	}
+	public String getBirthMonth() {
+		return birthday.substring(3,5);
+	}
+	public String getBirthYear() {
+		return birthday.substring(6,10);
+	}
     
     /////////////////////////////TAKES INPUT FROM GUI AS STRINGS AND PUTS VALUES TO THE PATIENTS ATTRIBUTES///////////////////
     public void createPatient(String firstname, String lastname, String address, String phonenumber, String bDay, String bMonth,
@@ -47,8 +57,7 @@ public class Patient extends Person {
 		setPhonenumber(phonenumber);
 		setBirthday(bDay, bMonth, bYear);
 		setTribe(tribe);
-		String ALIVE = isAlive;
-        this.isAlive = ALIVE == "Yes";
+        setAlivestatus(isAlive);
 		setDepartment("None");
 		//setPatientID();
 		//this.patientID = getPatientID();
@@ -127,10 +136,7 @@ public class Patient extends Person {
 	public void setTribe(String tribe) {
 		this.tribe = tribe;	
 	}
-	
-	public void setAlivestatus(boolean isAlive) {
-		this.isAlive = isAlive;
-	}
+
 	
 	////////////////////////GETTERS FOR VARIABLES//////////////////////////////////////
 	
@@ -159,27 +165,18 @@ public class Patient extends Person {
 	public String getPhonenumberString() {
 		return Integer.toString(phonenumber);
 	}
-	
-	public String getAlivestatusString() {
-		return Boolean.toString(isAlive);
+
+
+
+	public void setAlivestatus(String isAlive) {
+		this.isAlive = isAlive;
+	}
+
+	public String getAlivestatus() {
+		return isAlive;
 	}
 	
 
-	
-	public Patient setPatient(String firstname, String lastname, String address, int phonenumber, String birthday, String tribe, boolean isAlive) {
-    	Patient p = new Patient();
-    	this.setFirstname(firstname);
-    	this.setLastname(lastname);
-    	this.setAddress(address);
-    	this.setPhonenumberB(phonenumber);
-    	this.setBday(birthday);
-    	this.tribe=tribe;
-    	this.isAlive=isAlive;
-    	this.setDepartment("None");
-    	//this.setPatientID();
-
-    	return p;
-	}
 
 	private void setPhonenumberB(int phonenumber) {
 		this.phonenumber=phonenumber;

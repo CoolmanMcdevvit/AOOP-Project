@@ -29,7 +29,7 @@ public class HomePageController{
     public void patChangePress() {
         if (session.getRole().equals("registration clerk")){
             view.setVisible(false);
-            application.changePatient(view);
+            application.changePatient(view, model.patientdata);
             }
         }
 
