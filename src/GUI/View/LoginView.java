@@ -1,17 +1,15 @@
 package GUI.View;
+
 import GUI.Controller.LoginController;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 
 public class LoginView extends JFrame{
 
     private JTextField usernametxt = new JTextField();
     private JPasswordField passtxt = new JPasswordField();
-    private JButton loginbtn = new JButton();
     private LoginController controller;
 
     public LoginView(LoginController controller){
@@ -27,13 +25,8 @@ public class LoginView extends JFrame{
 
         usernametxt = new JTextField(15);
         passtxt = new JPasswordField(15);
-        loginbtn = new JButton("Login");
-        loginbtn.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                controller.CheckLogin(usernametxt.getText(), String.valueOf(passtxt.getPassword()));
-            }
-        });
+        JButton loginbtn = new JButton("Login");
+        loginbtn.addActionListener(e -> controller.CheckLogin(usernametxt.getText(), String.valueOf(passtxt.getPassword())));
 
         GridBagConstraints c = new GridBagConstraints();
         c.insets = new Insets(2,2,2,2);

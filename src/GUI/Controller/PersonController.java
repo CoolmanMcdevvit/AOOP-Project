@@ -15,12 +15,12 @@ public class PersonController {
     private PersonInfoView view;
 
 
-    public void setView(PersonInfoView view, HomePageView hview) {
+    void setView(PersonInfoView view, HomePageView hview) {
         this.view = view;
         this.hview = hview;
     }
 
-    public void display() {
+    void display() {
         view.setVisible(true);
     }
 
@@ -37,7 +37,7 @@ public class PersonController {
     }
 
     //ensures birthdate format is correct
-    public boolean checkBirthday(JTextField[] f) {
+    boolean checkBirthday(JTextField[] f) {
         DateFormat format = new SimpleDateFormat("dd.MM.yyyy");
         format.setLenient(false);
         String date = f[2].getText() +"." + f[3].getText() + "." + f[4].getText();
@@ -50,7 +50,7 @@ public class PersonController {
     }
 
     //checks if fields are blank then returns true if no fields are blank
-   public boolean checkForBlanks(JTextField[] fields, int a){
+    boolean checkForBlanks(JTextField[] fields, int a){
        int c = 0;
        //for loop iterating over fields value checking for blanks inputs
        for(int i=0; i<a; i++){

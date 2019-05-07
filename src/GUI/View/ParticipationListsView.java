@@ -1,28 +1,13 @@
 package GUI.View;
 
-import GUI.Controller.FacilityStatusController;
-import GUI.Controller.FindPatientController;
 import GUI.Controller.ParticipationListsController;
-import GUI.Controller.PersonController;
-
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.text.SimpleDateFormat;
 
 public class ParticipationListsView extends JFrame{
 
-    private JLabel admittednumberlabel,departmentslabel,inpatientlabel,outpatientlabel,emergencylabel;
-    private JPanel panel;
-    private JTextField inpatientnumber,outpatientnumber,emergencynumber;
     private ParticipationListsController controller;
-    private JButton homebutton, exportbutton;
-    private JComboBox<String> dropdownmenu;
-
-
-
 
 
     public ParticipationListsView(ParticipationListsController controller){
@@ -30,8 +15,9 @@ public class ParticipationListsView extends JFrame{
         initGUI();
     }
     public void initGUI(){
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
-        panel = new JPanel();
+        JPanel panel = new JPanel();
         setLayout(null);
         panel.setLayout(null);
         setTitle("Facility Status Window");
@@ -40,31 +26,24 @@ public class ParticipationListsView extends JFrame{
         setMinimumSize(new Dimension(340,290));
 
 
-
-
-        admittednumberlabel = new JLabel("Select Department");
+        JLabel admittednumberlabel = new JLabel("Select Department");
         admittednumberlabel.setFont(new Font("Arial", Font.BOLD, 23));
         admittednumberlabel.setBounds(60,20,220,40);
         panel.add(admittednumberlabel);
 
 
         String[] choices = {"Emergency","Inpatient","Outpatient"};
-        dropdownmenu = new JComboBox<String>(choices);
+        JComboBox<String> dropdownmenu = new JComboBox<>(choices);
         dropdownmenu.setBounds(60,70,200,100);
         panel.add(dropdownmenu);
 
-        homebutton = new JButton("Home");
+        JButton homebutton = new JButton("Home");
         homebutton.setBounds(45,200,110,30);
         panel.add(homebutton);
 
-        homebutton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                controller.returnHome();
-            }
-        });
+        homebutton.addActionListener(e -> controller.returnHome());
 
-        exportbutton = new JButton("Export");
+        JButton exportbutton = new JButton("Export");
         exportbutton.setBounds(165,200,110,30);
         panel.add(exportbutton);
 

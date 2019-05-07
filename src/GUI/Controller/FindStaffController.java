@@ -1,16 +1,9 @@
 package GUI.Controller;
 
-import GUI.Model.FindPatientModel;
 import GUI.Model.FindStaffModel;
-import GUI.View.FindView;
-import GUI.View.HomePageView;
-
-import Hospital.src.main.java.Hospital.Patient;
-
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
-import java.util.List;
 
 
 public class FindStaffController extends FindController {
@@ -20,7 +13,7 @@ public class FindStaffController extends FindController {
     private TableModel table;
 
     //defines FindStaffModel as private variable of class
-    public FindStaffController(FindStaffModel mdl) {
+    FindStaffController(FindStaffModel mdl) {
         this.model = mdl;
     }
 

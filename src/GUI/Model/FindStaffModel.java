@@ -1,11 +1,7 @@
 package GUI.Model;
 
-import Hospital.src.main.java.Hospital.HashMapData;
-import Hospital.src.main.java.Hospital.Patient;
 import Hospital.src.main.java.Hospital.StaffMap;
 
-import javax.swing.*;
-import java.util.ArrayList;
 
 public class FindStaffModel implements FindInterface{
 

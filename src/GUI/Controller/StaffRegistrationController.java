@@ -8,8 +8,6 @@ import javax.swing.*;
 
 public class StaffRegistrationController extends PersonController {
 
-    private StaffRegistrationView view;
-    private HomePageView hview;
     private StaffRegistration model;
 
 

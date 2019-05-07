@@ -3,47 +3,42 @@ package GUI.View;
 import GUI.Controller.PersonController;
 
 import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.text.SimpleDateFormat;
 
 public class PatientInfoView extends PersonInfoView{
 
-    private JLabel tribelabel,alivelabel, birthdatelabel, homeaddresslabel, phonenumberlabel;
     private JTextField homeaddress, phonenumber, field7,field8;
     private JFormattedTextField bdd,bdm,bdy;
 
-    private JPanel panel;
     protected PatientInfoView view;
 
-    public PatientInfoView(String toplabel, PersonController controller){
+    PatientInfoView(String toplabel, PersonController controller){
         super(toplabel, controller);
-        this.panel = getPanel();
+        JPanel panel = getPanel();
         addPatientLabels(panel);
         addTextFields(panel);
         buttonAdder(panel, getTextFields());
     }
 
-    public void addPatientLabels(JPanel panel){
+    private void addPatientLabels(JPanel panel){
 
-        birthdatelabel = new JLabel("Birth Date");
+        JLabel birthdatelabel = new JLabel("Birth Date");
         birthdatelabel.setBounds(50, 200, 150, 40);
         panel.add(birthdatelabel);
 
-        homeaddresslabel = new JLabel("Home Address");
+        JLabel homeaddresslabel = new JLabel("Home Address");
         homeaddresslabel.setBounds(50, 260, 150, 40);
         panel.add(homeaddresslabel);
 
-        phonenumberlabel = new JLabel("Phone Number");
+        JLabel phonenumberlabel = new JLabel("Phone Number");
         phonenumberlabel.setBounds(50, 320, 150, 40);
         panel.add(phonenumberlabel);
 
-        tribelabel = new JLabel("Tribe");
+        JLabel tribelabel = new JLabel("Tribe");
         tribelabel.setBounds(50, 380, 150, 40);
         panel.add(tribelabel);
 
-        alivelabel = new JLabel("Alive");
+        JLabel alivelabel = new JLabel("Alive");
         alivelabel.setBounds(50, 440, 150, 40);
         panel.add(alivelabel);
     }
@@ -79,7 +74,7 @@ public class PatientInfoView extends PersonInfoView{
         panel.add(field8);
     }
 
-    public JTextField[] getPatientTextFields(){
+    JTextField[] getPatientTextFields(){
         JTextField[] fields = new JTextField[9];
         JTextField[] originalfields = getTextFields();
         fields[0] = originalfields[0];

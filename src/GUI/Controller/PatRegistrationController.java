@@ -1,20 +1,12 @@
 package GUI.Controller;
 
-import GUI.Model.Homepage;
 import GUI.Model.PatRegistration;
-import GUI.View.HomePageView;
-import GUI.View.PatientRegistrationView;
 
 import javax.swing.*;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 
 //subclass of PersonController
 public class PatRegistrationController extends PersonController{
 
-    private PatientRegistrationView view;
-    private HomePageView hview;
     private PatRegistration model;
 
     PatRegistrationController(PatRegistration mdl){

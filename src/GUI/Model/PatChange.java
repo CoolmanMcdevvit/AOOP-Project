@@ -9,13 +9,11 @@ import java.util.Map;
 
 public class PatChange implements Change{
 
-    private HashMapData data;
     private Map<Integer, Patient> mapp;
     private Patient p;
 
     public PatChange(HashMapData patientdata){
-        this.data = patientdata;
-        this.mapp = data.getHashMapData();
+        this.mapp = patientdata.getHashMapData();
     }
 
     public void update(JTextField[] f){

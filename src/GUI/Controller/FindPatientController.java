@@ -1,15 +1,10 @@
 package GUI.Controller;
 
 import GUI.Model.FindPatientModel;
-import GUI.View.FindView;
-import GUI.View.HomePageView;
-import Hospital.src.main.java.Hospital.HashMapData;
-import Hospital.src.main.java.Hospital.Patient;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
-import java.util.List;
 
 //subclass of FindController
 public class FindPatientController extends FindController{
@@ -20,7 +15,7 @@ public class FindPatientController extends FindController{
     private TableModel table;
 
     // sets FindPatientModel as private variable
-    public FindPatientController(FindPatientModel mdl) {
+    FindPatientController(FindPatientModel mdl) {
         this.model = mdl;
     }
 

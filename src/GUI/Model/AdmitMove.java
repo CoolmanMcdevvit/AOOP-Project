@@ -1,14 +1,9 @@
 package GUI.Model;
 
 import Hospital.src.main.java.Hospital.HashMapData;
-import Hospital.src.main.java.Hospital.Patient;
-
-import javax.swing.*;
-import java.util.Map;
 
 public class AdmitMove {
 
-    private Patient patient;
     private HashMapData hmd;
 
     //HashMapData passed to constructor to ensure that always operating on same HashMap

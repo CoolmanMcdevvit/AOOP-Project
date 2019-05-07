@@ -4,7 +4,6 @@ import Hospital.src.main.java.Hospital.HashMapData;
 import Hospital.src.main.java.Hospital.Patient;
 
 import javax.swing.*;
-import java.util.HashMap;
 
 
 public class PatRegistration implements Registration {

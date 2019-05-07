@@ -2,7 +2,6 @@ package GUI.Controller;
 
 import GUI.Model.PatChange;
 import GUI.View.ChangePatientView;
-import GUI.View.HomePageView;
 
 import javax.swing.*;
 
@@ -26,7 +25,7 @@ public class ChangePatientController extends PersonController{
     }
 
     //displays pop up optionPane asking for UID, this is then used to fill TextFields with User ID information
-    public void displayOptionPane(ChangePatientView view){
+    void displayOptionPane(ChangePatientView view){
         //assigning UIDsearch as user entry into popup pane
         String uidsearch = JOptionPane.showInputDialog("please enter UID of Patient");
         //call model to search for uidsearch

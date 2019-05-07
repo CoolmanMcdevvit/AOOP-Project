@@ -1,12 +1,8 @@
 package GUI.Model;
 
 import Hospital.src.main.java.Hospital.HashMapData;
-import Hospital.src.main.java.Hospital.Patient;
 import Hospital.src.main.java.Hospital.StaffMap;
 
-import javax.swing.*;
-import java.util.HashMap;
-import java.util.Map;
 
 public class Homepage{
 
@@ -26,7 +22,5 @@ public class Homepage{
         patientdata.closeData();
         staffdata.closeData();
     }
-    public void update(){
-        staffdata.closeData();}
 
 }

@@ -14,7 +14,7 @@ public class HomePageController{
     private Homepage model;
 
     // sets session, application and model as private variables of HomePageController class
-    public HomePageController(Session s){
+    HomePageController(Session s){
         this.session = s;
         this.application = new ApplicationController();
         this.model = new Homepage();
@@ -47,12 +47,14 @@ public class HomePageController{
 
     public void patAdmitMovePress(){
         if (session.getRole().equals("registration clerk")) {
+            view.setVisible(false);
             application.admitMove(view, model.patientdata);
         }
     }
 
     public void staffRegistrationPress(){
         if (session.getRole().equals("registration clerk")) {
+            view.setVisible(false);
             //model.staffdata in these functions refers to the Staff Hashmap
             application.staffRegistration(view, model.staffdata);
         }
@@ -60,6 +62,7 @@ public class HomePageController{
 
     public void staffChangePress(){
         if (session.getRole().equals("registration clerk")) {
+            view.setVisible(false);
             application.staffChange(view, model.staffdata);
         }
     }
@@ -101,5 +104,5 @@ public class HomePageController{
         this.view = view;
     }
 
-    public void display(){view.setVisible(true);}
+    void display(){view.setVisible(true);}
 }

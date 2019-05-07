@@ -4,17 +4,9 @@ package GUI.View;
 import GUI.Controller.HomePageController;
 
 import javax.swing.*;
-import javax.swing.text.DateFormatter;
-import javax.swing.text.DefaultFormatterFactory;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.text.SimpleDateFormat;
 
 public class HomePageView extends JFrame{
-    private JButton patregbutton,patchangebutton , patfindbutton, patadmissionbutton, facilitySButton, participationLButton,updateDButton;
-    private JButton staffregbutton, staffchangebutton, stafffindbutton;
-    private JButton  patdischargebutton;
     private HomePageController controller;
 
 
@@ -26,7 +18,7 @@ public class HomePageView extends JFrame{
 
     public void initGUI(){
         // Stops program on close
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         //defines layout
         setLayout(new GridBagLayout());
         //sets title of window
@@ -46,42 +38,19 @@ public class HomePageView extends JFrame{
         p1.setLayout(new GridBagLayout());
 
         // Set button values
-        patregbutton = new JButton("Patient Registration");
-        patchangebutton = new JButton("Change Patient Information");
-        patfindbutton = new JButton("Find Patient");
-        patadmissionbutton = new JButton("Admit/Move/Discharge patient");
-        patdischargebutton = new JButton("Discharge Patient");
+        JButton patregbutton = new JButton("Patient Registration");
+        JButton patchangebutton = new JButton("Change Patient Information");
+        JButton patfindbutton = new JButton("Find Patient");
+        JButton patadmissionbutton = new JButton("Admit/Move/Discharge patient");
+        JButton patdischargebutton = new JButton("Discharge Patient");
 
         //defines what to do on button press
-        patregbutton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                controller.patRegistrationPress();
-            }
-        });
-        patchangebutton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                controller.patChangePress();
-            }
-        });
-        patfindbutton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                controller.patFindPress();
-            }
-        });
-        patadmissionbutton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                controller.patAdmitMovePress();
-            }
-        });
-        patdischargebutton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                String uid = JOptionPane.showInputDialog("please enter UID of Patient");
-            }
+        patregbutton.addActionListener(e -> controller.patRegistrationPress());
+        patchangebutton.addActionListener(e -> controller.patChangePress());
+        patfindbutton.addActionListener(e -> controller.patFindPress());
+        patadmissionbutton.addActionListener(e -> controller.patAdmitMovePress());
+        patdischargebutton.addActionListener(e -> {
+            String uid = JOptionPane.showInputDialog("please enter UID of Patient");
         });
 
         // GridbagContraints defines location of components in panel
@@ -97,29 +66,14 @@ public class HomePageView extends JFrame{
         p1.add(patadmissionbutton,gc);
 
         JPanel p2 = new JPanel();
-        staffregbutton = new JButton("Staff Registration");
-        staffchangebutton = new JButton("Change Staff Information");
-        stafffindbutton = new JButton("Find Staff Member");
+        JButton staffregbutton = new JButton("Staff Registration");
+        JButton staffchangebutton = new JButton("Change Staff Information");
+        JButton stafffindbutton = new JButton("Find Staff Member");
 
 
-        staffregbutton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                controller.staffRegistrationPress();
-            }
-        });
-        staffchangebutton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                controller.staffChangePress();
-            }
-        });
-        stafffindbutton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                controller.findStaffPress();
-            }
-        });
+        staffregbutton.addActionListener(e -> controller.staffRegistrationPress());
+        staffchangebutton.addActionListener(e -> controller.staffChangePress());
+        stafffindbutton.addActionListener(e -> controller.findStaffPress());
 
         p2.setLayout(new GridBagLayout());
         // x&y location, x directional size, fill all row, distance between components
@@ -133,38 +87,23 @@ public class HomePageView extends JFrame{
         JPanel p3 = new JPanel();
         p3.setLayout(new GridBagLayout());
 
-        facilitySButton = new JButton("Facility Status");
+        JButton facilitySButton = new JButton("Facility Status");
         gc.gridx=0; gc.gridy=0; gc.ipadx = 150 ;gc.fill = GridBagConstraints.HORIZONTAL; gc.insets = new Insets(5,5,5,5);
         p3.add(facilitySButton,gc);
 
-        facilitySButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                controller.facilityStatusPress();
-            }
-        });
+        facilitySButton.addActionListener(e -> controller.facilityStatusPress());
 
-        participationLButton = new JButton("Participation lists");
+        JButton participationLButton = new JButton("Participation lists");
         gc.fill = GridBagConstraints.HORIZONTAL; gc.gridy=1;
         p3.add(participationLButton,gc);gc.weightx = 200;
 
-        participationLButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                controller.participationListsPress();
-            }
-        });
+        participationLButton.addActionListener(e -> controller.participationListsPress());
 
-        updateDButton = new JButton("Update database");
+        JButton updateDButton = new JButton("Update database");
         gc.fill = GridBagConstraints.HORIZONTAL; gc.gridy=2;
         p3.add(updateDButton,gc);gc.weightx = 200;
 
-        updateDButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                controller.updateDatabasePress();
-            }
-        });
+        updateDButton.addActionListener(e -> controller.updateDatabasePress());
 
 
 

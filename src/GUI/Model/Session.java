@@ -1,24 +1,17 @@
 package GUI.Model;
 
 
-import java.util.ArrayList;
-
 public class Session {
 
     private String role;
     private User user;
-    public Session(int key){
-        setRole(key);
+    public Session(){
+        setRole();
     }
 
     public void setUser(User user){this.user = user;}
 
-    public User getUser(){return this.user;}
-
-    public int getUsername(){return user.getUsername();}
-
-    public void setRole(int key){
-        ArrayList temp = new ArrayList();
+    private void setRole(){
         this.role = "registration clerk"; //return Registration.get(key).get(1);
     }
 

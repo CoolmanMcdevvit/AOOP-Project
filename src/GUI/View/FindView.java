@@ -1,24 +1,9 @@
 package GUI.View;
 
-import GUI.Controller.ChangePatientController;
 import GUI.Controller.FindController;
-import GUI.Controller.FindPatientController;
-import GUI.Controller.PatRegistrationController;
-import Hospital.src.main.java.Hospital.Patient;
-
 
 import javax.swing.*;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableModel;
-import javax.swing.table.TableRowSorter;
-import javax.swing.text.DateFormatter;
-import javax.swing.text.DefaultFormatterFactory;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Vector;
 
 
 public class FindView extends JFrame {
@@ -27,18 +12,15 @@ public class FindView extends JFrame {
 
     private JPanel panel;
     private JTextField searchtextfield;
-    private JRadioButton uidbutton,namebutton,surnamebutton;
-    private JButton homebutton;
     private ButtonGroup radiobuttons;
 
-    public FindView(FindController controller){
+    FindView(FindController controller){
         this.controller = controller;
         initGUI();
     }
 
-    private TableRowSorter<TableModel> rowSorter;
-
     public void initGUI(){
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         panel = new JPanel();
         setLayout(null);
         panel.setLayout(null);
@@ -58,34 +40,29 @@ public class FindView extends JFrame {
         panel.add(searchtextfield);
 
 
-        homebutton = new JButton("Home");
+        JButton homebutton = new JButton("Home");
         homebutton.setBounds(320,70,160,30);
-        homebutton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e){
-                controller.returnHome();
-            }
-        });
+        homebutton.addActionListener(e -> controller.returnHome());
         panel.add(homebutton);
 
         setLocationRelativeTo(null);
 
         radiobuttons = new ButtonGroup();
 
-        namebutton = new JRadioButton("Name");
+        JRadioButton namebutton = new JRadioButton("Name");
         namebutton.setBounds(30,20,100,20);
         namebutton.setActionCommand("Name");
         radiobuttons.add(namebutton);
         panel.add(namebutton);
         namebutton.setSelected(true);
 
-        surnamebutton = new JRadioButton("Surname");
+        JRadioButton surnamebutton = new JRadioButton("Surname");
         surnamebutton.setBounds(30,50,100,20);
         surnamebutton.setActionCommand("Surname");
         radiobuttons.add(surnamebutton);
         panel.add(surnamebutton);
 
-        uidbutton = new JRadioButton("UID");
+        JRadioButton uidbutton = new JRadioButton("UID");
         uidbutton.setBounds(30,80,100,20);
         uidbutton.setActionCommand("UID");
         radiobuttons.add(uidbutton);
@@ -95,7 +72,7 @@ public class FindView extends JFrame {
 
 
 
-    public JTextField getTextfield(){
+    JTextField getTextfield(){
         return searchtextfield;
     }
 
@@ -103,7 +80,7 @@ public class FindView extends JFrame {
         return panel;
     }
 
-    public ButtonGroup getRadiobuttons(){
+    ButtonGroup getRadiobuttons(){
         return radiobuttons;
     }
 

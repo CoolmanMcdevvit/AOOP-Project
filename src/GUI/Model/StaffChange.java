@@ -1,7 +1,6 @@
 package GUI.Model;
 
 
-import Hospital.src.main.java.Hospital.Patient;
 import Hospital.src.main.java.Hospital.Staff;
 import Hospital.src.main.java.Hospital.StaffMap;
 
@@ -10,13 +9,11 @@ import java.util.Map;
 
 public class StaffChange implements Change {
 
-    private StaffMap staffmap;
     private Map<Integer, Staff> mapp;
     private Staff staff;
 
     public StaffChange(StaffMap hsm){
-    this.staffmap = hsm;
-    this.mapp = staffmap.getHashMapStaff();
+        this.mapp = hsm.getHashMapStaff();
     }
 
     public Staff uidFind(String uid){

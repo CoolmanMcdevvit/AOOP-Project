@@ -4,7 +4,6 @@ import GUI.Model.AdmitMove;
 import GUI.View.AdmitMoveView;
 import GUI.View.HomePageView;
 
-import javax.swing.*;
 
 public class AdmitMoveController{
 
@@ -17,13 +16,13 @@ public class AdmitMoveController{
         this.model = mdl;
     }
     //sets view and homepage view variables
-    public void setView(AdmitMoveView view, HomePageView hview){
+    void setView(AdmitMoveView view, HomePageView hview){
         this.view = view;
         this.hview = hview;
     }
 
     //sets homepageview as not visible then sets AdmitMoveView as visible
-    public void display() {
+    void display() {
         hview.setVisible(false);
         view.setVisible(true);
     }

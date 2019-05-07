@@ -3,9 +3,6 @@ package GUI.Controller;
 import GUI.View.FindView;
 import GUI.View.HomePageView;
 
-import javax.swing.*;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableModel;
 
 //superclass controller for Find controllers
 public class FindController {
@@ -14,13 +11,13 @@ public class FindController {
     private HomePageView hview;
 
     //sets FindViews and Homepageview  as Attributes to class
-    public void setView(FindView view, HomePageView hview){
+    void setView(FindView view, HomePageView hview){
         this.view = view;
         this.hview = hview;
     }
 
     // Sets Findviews as visible
-    public void display(){
+    void display(){
         view.setVisible(true);
     }
 
