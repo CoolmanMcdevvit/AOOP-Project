@@ -252,7 +252,7 @@ public class HashMapData {
 			{
 				Patient temp = new Patient();
 				System.out.println(rs.getString(3));
-				temp.setPatient(rs.getString(2), rs.getString(3), rs.getString(5), rs.getInt(7), rs.getString(4), rs.getString(8), rs.getString(9),rs.getString(10));
+				temp.setPatient(rs.getString(2), rs.getString(3), rs.getString(5), rs.getInt(7), rs.getString(4), rs.getString(8), rs.getString(9),"0");
 				hashmapdata.put(temp.getPatientID(), temp);
 			};
 			con.close();

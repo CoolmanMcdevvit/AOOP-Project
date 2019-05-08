@@ -64,7 +64,7 @@ public class PersonInfoView extends JFrame{
     //setting common buttons
     void buttonAdder(JPanel panel, JTextField[] fields){
         JButton cleartext = new JButton("Clear Text");
-        cleartext.setBounds(200, 500, 138, 30);
+        cleartext.setBounds(200, 550, 140, 30);
         cleartext.addActionListener(e -> {
             //controller.clear(fields);
         });
